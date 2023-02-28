@@ -1,0 +1,51 @@
+<f:if condition="{MainMenu}">
+    <nav>
+        <ul>
+            <f:for each="{MainMenu}" as="item">
+                <li class="{f:if(condition: item.active, then:' active')} {f:if(condition: item.children, then:' has-sub')}">
+                    <a href="{f:if(condition: item.children, then:'javascript:;',else:'{item.link}')}">
+                        {item.title}
+                        <f:if condition="{item.children}">
+                            <div class="arrow"></div>
+                        </f:if>
+                    </a>
+                    <f:if condition="{item.children}">
+                        <div class="sub-menu second-level-menu">
+                            <ul>
+                                <li class="back-link first-level-link">
+                                    <span><img src="typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/arrow-left.svg" alt="Arrow Left Image" ></span> <a href="javascript:;">{item.title}</a>
+                                </li>
+                                <f:for each="{item.children}" as="child">
+                                    <li class="{f:if(condition: '{child.children}', then: 'has-sub')}">
+                                        <a href="{child.link}" class="{f:if(condition: child.active, then:'active-nav')}" title="{child.title}">
+                                            {child.title}
+                                            <f:if condition="{child.children}">
+                                                <div class="arrow"></div>
+                                            </f:if>
+                                        </a>
+                                        <f:if condition="{child.children}">
+                                            <div class="sub-menu third-level-menu">
+                                                <ul>
+                                                    <li class="back-link second-level-link">
+                                                        <span><img src="typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/arrow-left.svg" alt="Arrow Left Image" ></span> <a href="javascript:;">{child.title}</a>
+                                                    </li>
+                                                    <f:for each="{child.children}" as="item">
+                                                        <li>
+                                                            <a href="{item.link}" class="{f:if(condition: item.active, then:'active-nav')}" title="{item.title}">
+                                                                {item.title}
+                                                            </a>
+                                                        </li>
+                                                    </f:for>
+                                                </ul>
+                                            </div>
+                                        </f:if>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </div>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </nav>
+</f:if>

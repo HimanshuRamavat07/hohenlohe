@@ -1,0 +1,22 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <section id="c{data.uid}" class="map-section">
+        <div class="container">
+            <div class="row">                
+                <div class="col-md-12">
+                    <f:if condition="{image}">
+                        <picture>
+                            <source srcset="{f:uri.image(image: '{image.0}', maxWidth: '1920',height:height, width:width, cropVariant: 'default')}" media="(min-width: 1200px)">
+                            <source srcset="{f:uri.image(image: '{image.0}', maxWidth: '1200', cropVariant: 'specialTablet')}" media="(min-width: 768px)">
+                            <img src="{f:uri.image(image: '{image.0}', cropVariant: 'specialMobile')}" alt="Teaser Element Thumb">
+                        </picture>
+                    </f:if>
+                    <f:for each="{content.locationsPin}" as="pin" iteration="i">
+                        <f:variable name="mapCOntent"><f:format.html>{pin.tooltipContent}</f:format.html></f:variable>
+                        <a tabindex="0" data-container="body" data-trigger="click touch" href="javascript:;" role="button" class="map-marker popovers" data-toggle="popover" title=""
+                        data-content="{mapCOntent}" data-title="{pin.pinName}" style="left: {pin.leftPosition}%;bottom: {pin.topPosition}%;"></a>
+                    </f:for>
+                </div>
+            </div>
+        </div>
+    </section>
+</html>

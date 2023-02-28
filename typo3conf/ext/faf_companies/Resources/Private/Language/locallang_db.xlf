@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:faf_companies/Resources/Private/Language/locallang_db" date="2020-07-30T04:03:20Z" product-name="faf_companies">
+		<header/>
+		<body>
+			<trans-unit id="tx_fafcompanies_domain_model_company" resname="tx_fafcompanies_domain_model_company">
+				<source>FAF Companies</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_image" resname="tx_fafcompanies_domain_model_image">
+				<source>Text Image</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.companylogo" resname="tx_fafcompanies_domain_model_company.companylogo">
+				<source>Company logo</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.hoverlogo" resname="tx_fafcompanies_domain_model_company.hoverlogo">
+				<source>Hover logo</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.name" resname="tx_fafcompanies_domain_model_company.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.subline" resname="tx_fafcompanies_domain_model_company.subline">
+				<source>Subline</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.linktext" resname="tx_fafcompanies_domain_model_company.linktext">
+				<source>Link text</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.modelbannerimages" resname="tx_fafcompanies_domain_model_company.modelbannerimages">
+				<source>Model banner images</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.modelbannertitle" resname="tx_fafcompanies_domain_model_company.modelbannertitle">
+				<source>Model banner title</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.modelcontent" resname="tx_fafcompanies_domain_model_company.modelcontent">
+				<source>Model content</source>
+			</trans-unit>
+			<trans-unit id="tx_faf_companies_company.name" resname="tx_faf_companies_company.name">
+				<source>company</source>
+			</trans-unit>
+			<trans-unit id="tx_faf_companies_company.description" resname="tx_faf_companies_company.description">
+				<source>Select comapnies from Datasets of Companies</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

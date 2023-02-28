@@ -1,0 +1,11 @@
+tt_content.nsContainerSection < lib.contentElement
+tt_content.nsContainerSection {
+    templateName = NsContainerSection
+    templateRootPaths {
+        10 = EXT:ns_theme_hohenlohe/Resources/Private/Extension/Container/
+    }
+    dataProcessing {
+        100 = B13\Container\DataProcessing\ContainerProcessor
+        110 = NITSAN\NsBasetheme\DataProcessing\DefaultProcessor
+    }
+}

@@ -1,0 +1,110 @@
+<f:if condition="{configuration.insertAbove}">
+    <f:render section="Paginator" arguments="{pagination: pagination, configuration: configuration}" />
+</f:if>
+<f:renderChildren arguments="{contentArguments}" />
+<f:if condition="{configuration.insertBelow}">
+    <f:render section="Paginator" arguments="{pagination: pagination, configuration: configuration}" />
+</f:if>
+<f:section name="Paginator">
+    <div class="col-md-12">
+        
+            <ul class="tx-indexedsearch-browsebox">
+                <f:if condition="{pagination.previousPage}">
+                    <li class="nav-prev">
+                        <f:if condition="{pagination.previousPage} > 1">
+                            <f:then>
+                                <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.previous" extensionName="Blog" /></f:variable>
+                                <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: pagination.previousPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14.271">
+                                        <path
+                                            d="M7.854 12.522a1.019 1.019 0 010 1.454 1.044 1.044 0 01-1.454 0L.305 7.882a1.054 1.054 0 010-1.484L6.4.305a1.028 1.028 0 011.454 1.454L3.49 6.109h15.492A1.023 1.023 0 0120 7.14a1.012 1.012 0 01-1.018 1.018H3.492z"
+                                            fill="#ffb936" /></svg>
+                                </f:widget.link>
+                            </f:then>
+                            <f:else>
+                                <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.previous" extensionName="Blog" /></f:variable>
+                                <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14.271">
+                                        <path
+                                            d="M7.854 12.522a1.019 1.019 0 010 1.454 1.044 1.044 0 01-1.454 0L.305 7.882a1.054 1.054 0 010-1.484L6.4.305a1.028 1.028 0 011.454 1.454L3.49 6.109h15.492A1.023 1.023 0 0120 7.14a1.012 1.012 0 01-1.018 1.018H3.492z"
+                                            fill="#ffb936" /></svg>
+                                </f:widget.link>
+                            </f:else>
+                        </f:if>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.displayRangeStart} > 1">
+                    <li class="blogpagination__item--first">
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: '1'}" extensionName="Blog" /></f:variable>
+                        <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                            <span class="blogpagination__itemtitle">1</span>
+                        </f:widget.link>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.hasLessPages}">
+                    <li class="blogpagination__item--disabled blogpagination__item--ellipsis">
+                        <a href="javascript:void();" tabindex="-1" aria-hidden="true" class="">
+                            <span class="blogpagination__itemtitle">…</span>
+                        </a>
+                    </li>
+                </f:if>
+                <f:for each="{pagination.pages}" as="page">
+                    <f:if condition="{page.isCurrent}">
+                        <f:then>
+                            <li class="blogpagination__item--active tx-indexedsearch-browselist-currentPage">
+                                <f:variable name="ariaLabel"><f:translate key="pagination.aria.current.page" arguments="{0: page.number}" extensionName="Blog" /></f:variable>
+                                <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel, aria-current: 'true'}" arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                    <span class="blogpagination__itemtitle">{page.number}</span>
+                                </f:widget.link>
+                            </li>
+                        </f:then>
+                        <f:else>
+                            <li class="">
+                                <f:if condition="{page.number} > 1">
+                                    <f:then>
+                                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: page.number}" extensionName="Blog" /></f:variable>
+                                        <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                            <span class="blogpagination__itemtitle">{page.number}</span>
+                                        </f:widget.link>
+                                    </f:then>
+                                    <f:else>
+                                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: page.number}" extensionName="Blog" /></f:variable>
+                                        <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                                            <span class="blogpagination__itemtitle">{page.number}</span>
+                                        </f:widget.link>
+                                    </f:else>
+                                </f:if>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+                <f:if condition="{pagination.hasMorePages}">
+                    <li class="blogpagination__item--disabled blogpagination__item--ellipsis">
+                        <a href="javascript:void();" tabindex="-1" aria-hidden="true" class="">
+                            <span class="blogpagination__itemtitle">…</span>
+                        </a>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.displayRangeEnd} < {pagination.numberOfPages}">
+                    <li class="blogpagination__item--last">
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.page" arguments="{0: pagination.numberOfPages}" extensionName="Blog" /></f:variable>
+                        <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: pagination.numberOfPages}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                            <span class="blogpagination__itemtitle">{pagination.numberOfPages}</span>
+                        </f:widget.link>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.nextPage}">
+                    <li class="nav-next">
+                        <f:variable name="ariaLabel"><f:translate key="pagination.aria.goto.next" extensionName="Blog" /></f:variable>
+                        <f:widget.link class="" additionalAttributes="{aria-label: ariaLabel}" arguments="{currentPage: pagination.nextPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14.271">
+                                <path
+                                    d="M12.146 1.749a1.019 1.019 0 010-1.454 1.044 1.044 0 011.454 0l6.095 6.094a1.054 1.054 0 010 1.484L13.6 13.966a1.028 1.028 0 01-1.454-1.454l4.364-4.35H1.018A1.023 1.023 0 010 7.131a1.012 1.012 0 011.018-1.018h15.49z"
+                                    fill="#ffb936" /></svg>
+                        </f:widget.link>
+                    </li>
+                </f:if>
+            </ul>
+        
+    </div>
+</f:section>

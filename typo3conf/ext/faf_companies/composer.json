@@ -1,0 +1,23 @@
+{
+    "name": "faf/faf-companies",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [],
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Faf\\FafCompanies\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Faf\\FafCompanies\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "faf/faf-companies": "self.version",
+        "typo3-ter/faf-companies": "self.version"
+    }
+}

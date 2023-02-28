@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <section id="{form.identifier}" style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+        <div class="container">
+            <f:if condition="{isPreparedMessage}">
+                <f:then>
+                    <h4>
+                        {message -> f:format.raw()}
+                    </h4>
+                </f:then>
+                <f:else>
+                    <h4>
+                        {message -> f:format.nl2br()}
+                    </h4>
+                </f:else>
+            </f:if>
+        </div>
+    </section>
+</html>

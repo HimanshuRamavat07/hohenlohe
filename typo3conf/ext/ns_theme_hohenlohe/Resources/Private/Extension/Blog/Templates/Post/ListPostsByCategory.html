@@ -1,0 +1,63 @@
+<f:layout name="Default" />
+<f:section name="Content">
+    <f:if condition="{category}">
+        <f:then>
+            <section class="blog-teaser">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="">
+                                <span class="sub-tag">
+                                    <f:translate key="headline.category" arguments="{0: category.title}" />                        
+                                    <blogvh:link.category class="page__titlelink" rss="true" category="{category}">
+                                        <span class="blogicon">
+                                            <f:render partial="General/SocialIcons" section="Rss" optional="true" /></span>
+                                    </blogvh:link.category>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="taxonomy-description">
+                        <p>{category.description}</p>
+                        <f:if condition="{category.content}">
+                            <f:cObject typoscriptObjectPath="lib.blog.contentElementRendering">{category.contentElementUidList}</f:cObject>
+                        </f:if>
+                    </div>
+                    <div class="row">
+                        <f:if condition="{posts->f:count()} > {settings.lists.pagination.itemsPerPage}">
+                            <f:then>
+                                <f:render section="PaginatePostsTeaser" arguments="{posts: posts, pagination: settings.lists.pagination}" />
+                            </f:then>
+                            <f:else>
+                                <f:render section="ListPostsTeaser" arguments="{posts: posts}" />
+                            </f:else>
+                        </f:if>
+                    </div>
+                </div>
+            </section>
+        </f:then>
+        <f:else>
+            <h1 class="page__title">
+                <span class="page__titletext"><f:translate key="headline.categories" /></span>
+            </h1>
+            <ul class="list-inline">
+                <f:for each="{categories}" as="category">
+                    <li><blogvh:link.category category="{category}" /></li>
+                </f:for>
+            </ul>
+        </f:else>
+    </f:if>
+
+    <f:section name="ListPostsTeaser">
+        <f:for each="{posts}" as="post">
+            <blogvh:cache post="{post}" />
+            <f:render partial="List/Teaser" arguments="{_all}" />
+        </f:for>
+    </f:section>
+    <f:section name="PaginatePostsTeaser">
+        <f:for each="{posts}" as="paginatedPosts">
+            <f:render section="ListPostsTeaser" arguments="{posts: paginatedPosts}" />
+        </f:for>
+    </f:section>
+</f:section>

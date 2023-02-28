@@ -1,0 +1,23 @@
+// Grids configuration added in GLOBAL pageTS
+tx_gridelements.setup {
+    # Identifier
+   nsContainerSection {
+        title = LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:nsContainerSection
+        description = LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:nsContainerSection.des
+        icon = EXT:ns_basetheme/Resources/Public/Icons/gridelements.svg
+        config {
+            colCount = 1
+            rowCount = 1
+            rows {
+                1 {
+                    columns {
+                        1 {
+                            name = Column 1
+                            colPos = 1
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}

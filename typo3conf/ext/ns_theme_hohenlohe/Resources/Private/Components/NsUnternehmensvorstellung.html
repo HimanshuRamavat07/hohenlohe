@@ -1,0 +1,117 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <f:if condition="{content.overline} || {content.headline} || {content.companies}">
+        <section id="c{data.uid}" class="member-section">
+            <div class="container">
+                <f:if condition="{content.overline} || {content.headline}">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="member-title-block">
+                                <f:if condition="{content.overline}">
+                                    <span class="sub-tag">{content.overline}</span>
+                                </f:if>
+                                <f:if condition="{content.headline}">
+                                    <h2>{content.headline}</h2>
+                                </f:if>
+                            </div>
+                        </div>
+                    </div>
+                </f:if>
+                <f:if condition="{content.companies}">
+                    <div class="row">
+                        <f:for each="{content.companies}" as="company" iteration="i">
+                            <div class="col-lg-4 col-sm-6">
+                                <a href="javascipt:;" class="member-teaser" data-toggle="modal" data-target=".member-modal">
+                                    <f:if condition="{company.logo}">
+                                        <f:image class="member-image member-image-default" src="{company.logo}" height="75c" width="125c" />
+                                    </f:if>
+                                    <f:if condition="{company.hoverLogo}">
+                                        <f:image class="member-image member-image-hover" src="{company.hoverLogo}" height="75c" width="125c" />                                        
+                                    </f:if>                           
+                                    <f:if condition="{company.name}">
+                                        <h3>{company.name}</h3>
+                                    </f:if>
+                                    <f:if condition="{company.subline}">
+                                        <h4>
+                                            {company.subline}
+                                        </h4>
+                                    </f:if>
+                                    <div class="member-teaser-link">
+                                        <p class="icon-link"> <f:translate key="readmore" extensionName="ns_theme_hohenlohe" /> </p>
+                                    </div>
+                                </a>
+                            </div>                    
+                        </f:for>
+                    </div>
+                </f:if>
+            </div>
+            
+            <f:if condition="{content.companies}">
+                <div class="modal member-modal" tabindex="-1" role="dialog" aria-labelledby="memberDetailModal"
+                    aria-hidden="true">
+                    <button type="button" class="close btn-close" data-dismiss="modal" aria-hidden="true">
+                        <span class="bars"></span>
+                        <span class="bars"></span>
+                        <span class="bars"></span>
+                    </button>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <section class="member-slider">
+                                <div class="container">
+                                    <div class="member-slider-block">
+                                        <div class="member-slider-init owl-carousel">
+                                            <f:for each="{content.companies}" as="company" iteration="i">
+                                                <div class="member-slide">
+                                                    <f:if condition="{company.modelBannerImage} || {company.modelBannerTitle}">
+                                                        <div class="member-slide-image">
+                                                            <f:if condition="{company.modelBannerImage}">
+                                                                <picture>
+                                                                    <source
+                                                                        srcset="{f:uri.image(src: '{company.modelBannerImage}', maxWidth: '1920', cropVariant: 'default')}"
+                                                                        media="(min-width: 1200px)">
+                                                                    <source srcset="{f:uri.image(src: '{company.modelBannerImage}', maxWidth: '1200', cropVariant: 'specialTablet')}"
+                                                                        media="(min-width: 768px)">
+                                                                    <img class="image-embed-item"
+                                                                        src="{f:uri.image(src: '{company.modelBannerImage}', cropVariant: 'specialMobile')}"
+                                                                        alt="Image">
+                                                                </picture>
+                                                            </f:if>
+                                                            <f:if condition="{company.modelBannerTitle}">
+                                                                <div class="member-slider-title">
+                                                                    <f:format.raw>
+                                                                        <h2>
+                                                                            {company.modelBannerTitle}
+                                                                        </h2>
+                                                                    </f:format.raw>
+                                                                </div>
+                                                            </f:if>
+                                                        </div>
+                                                    </f:if>
+                                                    <f:if condition="{company.logo} ||{company.modelContent} ">
+                                                        <div class="member-slide-content content-section">
+                                                            <f:if condition="{company.logo}">
+                                                                <div class="member-slide-logo">
+                                                                    <img src="{f:uri.image(src: '{company.logo}', cropVariant: 'specialMobile')}" alt="Member Logo">
+                                                                </div>
+                                                            </f:if>
+                                                            <f:if condition="{company.modelContent}">
+                                                                <div class="member-slide-content--inner">
+                                                                    <f:format.html>{company.modelContent}</f:format.html>                                                    
+                                                                </div>
+                                                            </f:if>
+                                                        </div>
+                                                    </f:if>
+                                                </div>
+                                            </f:for>                                    
+                                        </div>
+                                        <div class="slider-counter"></div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </f:if>
+        </section>
+    </f:if>
+</html>

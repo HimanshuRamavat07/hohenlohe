@@ -1,0 +1,224 @@
+<f:layout name="Default" />
+<f:section name="content">
+
+    <f:if condition="{company}">
+   
+        <div class="member-detail">
+           
+                <div class="spacing-element spacing-element--small spacing-element--bg-white"></div>
+                <section class="member-slider">
+                    <div class="container">
+                        <div class="member-slider-block">
+                            <div class="member-slider-init owl-carousel">
+                                <f:if condition="{company.modelbannerimages} || {company.modelbannertitle}">
+                                    <f:for each="{company.modelbannerimages}" as="bannerimages" iteration="i">
+                                        <div class="member-slide">
+                                            <div class="member-slide-image">
+                                                <f:if condition="{company.modelbannerimages}">
+                                                    <picture>
+                                                        <source srcset="{f:uri.image(image: bannerimages, maxWidth: '1920', treatIdAsReference:1, cropVariant: 'default')}" media="(min-width: 1200px)">
+                                                        <source srcset="{f:uri.image(image: bannerimages, maxWidth: '1200', treatIdAsReference:1, cropVariant: 'specialTablet')}" media="(min-width: 768px)">
+                                                        <img class="image-embed-item" src="{f:uri.image(image: bannerimages, treatIdAsReference:1, cropVariant: 'specialMobile')}" alt="Image">
+                                                    </picture>  
+                                                </f:if>
+                                                <f:if condition="{company.modelbannertitle}">
+                                                    <div class="member-slider-title">
+                                                        <f:format.raw>
+                                                            <h2>
+                                                                {company.modelbannertitle}
+                                                            </h2>
+                                                        </f:format.raw>
+                                                    </div>
+                                                </f:if>
+                                            </div>
+                                        </div>
+                                    </f:for>
+                                </f:if>
+                            </div>
+                            <div class="slider-counter"></div>
+                        </div>
+                    </div>
+                </section>
+                <section class="content-section">
+                    <div class="container">
+                        <div class="member-title-info">
+                            <div class="row align-items-center">
+                                <div class="col-lg-3 order-lg-last">
+                                    <div class="member-slide-logo">
+                                        <img src="{f:uri.image(image: company.companylogo, treatIdAsReference:1)}" alt="Member Logo">
+                                    </div>
+                                </div>
+                                <f:if condition="{company.modelbannertitle}">
+                                    <div class="col-lg-9 order-lg-first">
+                                        <h2>{company.modelbannertitle}</h2>
+                                    </div>
+                                </f:if>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <f:if condition="{company.modelcontent}">
+                                    <div class="member-slide-content--inner">
+                                        <f:format.html>{company.modelcontent}</f:format.html>
+                                    </div>
+                                </f:if>
+                            </div>
+                            <div class="col-lg-3 offset-lg-1 col-aside">
+                                <aside class="member-detail-aside">
+                                    <f:if condition="{company.industry}">
+                                        <div class="member-aside-block border-bottom">
+                                            <h6><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:industry" /></h6>
+                                            <f:format.html>{company.industry}</f:format.html>
+                                        </div>
+                                    </f:if>
+                                    <f:if condition="{company.address}">
+                                        <div class="member-aside-block border-bottom">
+                                            <h6><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:address" /></h6>
+                                            <f:format.html>{company.address}</f:format.html>
+                                        </div>
+                                    </f:if>
+                                    <f:if condition="{company.cooperating}">
+                                        <div class="member-aside-block border-bottom">
+                                            <h6><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:cooperating" /></h6>
+                                            <f:format.html>{company.cooperating}</f:format.html>
+                                        </div>
+                                    </f:if>
+                                    
+                                    <f:if condition="{company.year}">
+                                        <div class="member-aside-block border-bottom">
+                                            <h6><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:year" /></h6>
+                                            <f:format.html>{company.year}</f:format.html>
+                                        </div>
+                                    </f:if>
+                                   
+                                    <f:if condition="{company.facebook} || {company.youtube} || {company.instagram} || {company.linkedin} || {company.xing}">
+                                        <div class="member-aside-block border-bottom">
+                                            <h6><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:social" /></h6>
+                                            <f:if condition="{company.facebook}">
+                                                <f:link.typolink class="d-inline-block mr-4 mt-2" parameter="{company.facebook}">
+                                                    <i class="fa fa-facebook"></i>                                            
+                                                </f:link.typolink>
+                                            </f:if>
+                                            <f:if condition="{company.youtube}">
+                                                <f:link.typolink class="d-inline-block mr-4 mt-2"  parameter="{company.youtube}">
+                                                    <i class="fa fa-youtube"></i>                                      
+                                                </f:link.typolink>
+                                            </f:if>
+                                            <f:if condition="{company.instagram}">
+                                                <f:link.typolink class="d-inline-block mr-4 mt-2"  parameter="{company.instagram}">
+                                                    <i class="fa fa-instagram"></i>
+                                                </f:link.typolink> 
+                                            </f:if>
+                                           <f:if condition="{company.linkedin}">
+                                                <f:link.typolink class="d-inline-block mr-4 mt-2"  parameter="{company.linkedin}">
+                                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                                </f:link.typolink>
+                                           </f:if>
+                                            <f:if condition="{company.xing}">
+                                                <f:link.typolink class="d-inline-block mr-4 mt-2"  parameter="{company.xing}">
+                                                    <i class="fa fa-xing" aria-hidden="true"></i>
+                                                </f:link.typolink>
+                                            </f:if>
+                                        </div>
+                                    </f:if>
+                                    <f:if condition="{company.rating}">
+                                        <div class="member-aside-block border-bottom">
+                                            <h6><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:rating" /></h6>
+                                            <div class="member-aside-block__rating">
+                                                <f:variable name="rate" value="{f:cObject(typoscriptObjectPath: 'lib.replace_space', data:'{company.rating}')}" />
+                                                
+                                                <h5 class="member-aside-block__rating-val">{rate}</h5>
+                                                <p class="static-star--rating" data-content="★★★★★" style="--rating: {company.rating};"></p>
+                                            </div>
+                                        </div>
+                                    </f:if>
+                                </aside>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <f:if condition="{company.images}">
+                                            <h6 class="title-text"><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:imagecontent" /></h6>
+                                        </f:if>
+                                    </div>
+                                </div>
+
+                                <f:for each="{company.images}" as="textimage">
+                                    <div class="member-text-image-block">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <f:if condition="{textimage.image}">
+                                                    <div class="member-text-image-block__img">
+                                                        <f:for each="{textimage.image}" as="falimage" iteration="i">
+                                                            <picture>
+                                                                <source srcset="{f:uri.image(image: falimage, maxWidth: '1920', treatIdAsReference:1, cropVariant: 'default')}" media="(min-width: 1200px)">
+                                                                <source srcset="{f:uri.image(image: falimage, maxWidth: '1200', treatIdAsReference:1, cropVariant: 'specialTablet')}" media="(min-width: 768px)">
+                                                                <img class="image" src="{f:uri.image(image: falimage, treatIdAsReference:1, cropVariant: 'specialMobile')}" alt="Image">
+                                                            </picture>  
+                                                        </f:for>
+                                                    </div>
+                                                </f:if>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="member-text-image-block__content">
+                                                    <f:format.html>{textimage.rte}</f:format.html>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </f:for>
+
+                                <f:if condition="{company.textcontent}">
+                                    <h6 class="title-text"><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:textcontent" /></h6>
+                                    <f:format.html>{company.textcontent}</f:format.html>
+                                </f:if>
+                            </div>
+                       
+                            <div class="col-sm-12">
+                                <div class="spacing-element spacing-element--small"></div>
+                                <f:if condition="{company.media}">
+                                    <h6 class="title-text"><f:translate key="LLL:EXT:faf_companies/Resources/Private/Language/locallang.xlf:media" /></h6>
+                                    <div class="video">
+                                        <div class="cover-image bg-image">
+                                            <a href="javascript:;" class="play-button">
+                                                <img src="typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/play-button.svg" alt="Icon">
+                                            </a>
+                                            <div class="video-area" data-videourl="{company.media}?controls=0&autoplay=1&loop=1">
+                                            
+                                                    <iframe class="lazyload" data-src="{company.media}?controls=0&autoplay=1&loop=1" data-cookieconsent="marketing" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </f:if>   
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="spacing-element"></div>
+                <section class="content-section bg-yellow member-info-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="member-info-content">
+                                    <f:if condition="{company.bottomcontent}">
+                                        <f:format.html>{company.bottomcontent}</f:format.html>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="content-section back-member-list-section">
+                    <div class="container">
+                        <div class="textPos">
+                            <a href="#" onclick="history.back()" class="back-to-member-list-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14.271"><path d="M7.854 12.522a1.019 1.019 0 010 1.454 1.044 1.044 0 01-1.454 0L.305 7.882a1.054 1.054 0 010-1.484L6.4.305a1.028 1.028 0 011.454 1.454L3.49 6.109h15.492A1.023 1.023 0 0120 7.14a1.012 1.012 0 01-1.018 1.018H3.492z" fill="#ffffff"/></svg>
+                                zurück zur übersicht
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            
+        </div>
+    </f:if>
+</f:section>

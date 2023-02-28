@@ -1,0 +1,191 @@
+<!-- START OF PAGE HEADER -->
+{namespace ns=NITSAN\ns_theme_hohenlohe\ViewHelpers}
+
+<header class="page headroom">
+    <div class="container-fluid">
+        <div class="header-main">
+            <!-- Search Link -->
+            <div class="header-search-block">
+                <a class="search-link" href="javascript:;"><span>{f:translate(key:'search',extensionName:'ns_theme_hohenlohe')} </span></a>
+                <div class="search-form">
+                    <f:form
+                        class="navbar-form navbar-right"
+                        pageUid="{settings.childSettings.searchPage}"
+                        extensionName="indexedsearch"
+                        pluginName="pi2"
+                        action="search"
+                        controller="Search">
+
+                        <f:form.textfield class="form-control" placeholder="{f:translate(key:'indexed_search.placeholder',extensionName:'ns_theme_hohenlohe')}" name="search[sword]" />
+                        <input type="hidden" name="search[action]" value="search"/>
+                        <input type="hidden" name="search[controller]" value="Search"/>
+
+                        <button class="btn search-btn" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20.96" height="26.745"><path d="M9.651.072a8.513 8.513 0 017.3 9.5 8.661 8.661 0 01-.706 2.484 8.785 8.785 0 01-1.093 1.76l5.462 9.019v.01a2.409 2.409 0 01.28 1.827 2.474 2.474 0 01-1.1 1.5h-.01l-.348.222h-.01a2.439 2.439 0 01-1.837.28 2.474 2.474 0 01-1.5-1.1v-.01l-5.355-8.845a9.238 9.238 0 01-1.363.252 8.714 8.714 0 01-1.875-.019.56.56 0 01-.125-.019A8.5 8.5 0 01.06 7.5a.56.56 0 01.019-.125A8.5 8.5 0 019.514.063c.048 0 .086.01.135.01zm1.334 12.055a.678.678 0 11.763 1.122 5.768 5.768 0 01-1.895.841 5.747 5.747 0 01-5.085-1.218 5.792 5.792 0 01-1.788-2.784.684.684 0 011.315-.377 4.385 4.385 0 001.363 2.127 4.451 4.451 0 003.877.938 4.385 4.385 0 001.45-.649zm3.166-7.995a7.108 7.108 0 00-4.746-2.716A7.154 7.154 0 001.413 7.6a7.154 7.154 0 006.187 8h.01a7.047 7.047 0 001.624.019 7.383 7.383 0 001.585-.348.7.7 0 01.8.29l5.6 9.251a.555.555 0 01.058.107 1.08 1.08 0 00.638.435 1.061 1.061 0 00.764-.1c.038-.019.068-.038.107-.058l.242-.155c.038-.019.068-.038.107-.058a1.088 1.088 0 00.338-1.4c-.019-.029-.038-.068-.058-.1l-5.645-9.319c-.01-.019-.019-.029-.019-.038l-.01-.01v-.01a.685.685 0 01.068-.812 7.172 7.172 0 001.2-1.808 7.168 7.168 0 00-.858-7.354z" fill="#1a1a1a"/></svg>
+                        </button>
+                    </f:form>
+                </div>
+            </div>
+
+            <f:if condition="{settings.childSettings.logo_text}">
+                <div class="brand-logo">
+                    <f:link.typolink parameter="{settings.rootpage}">
+                        <f:if condition="{settings.logo}">
+                            <f:then><img src="{settings.logo}" alt="logo"></f:then>
+                            <f:else>
+                                <img class="desktop--logo" src="/fileadmin/ns_theme_hohenlohe/hpl-oneline-wh.svg" alt="Logo">
+                                <img class="mobile--logo" src="/fileadmin/ns_theme_hohenlohe/hpl-twoline-wh.svg" alt="Logo">
+                            </f:else>
+                        </f:if>
+                    </f:link.typolink>
+                </div>
+            </f:if>
+
+            <div class="navigation">
+                <f:render partial="MainNavigation" arguments="{_all}" />
+                <div class="frequent-search-result">
+                    <span><f:translate key="popularsearchitem" extensionName="ns_theme_hohenlohe" /> </span>
+                    <f:if condition="{searchBottomLinks}">
+                        <ul class="search-menu-list">
+                            <f:for each="{searchBottomLinks}" as="item">
+                                <li>
+                                    <a href="{item.link}">
+                                        {item.title}
+                                    </a>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                    <a href="javascript:;" class="search-back-link"><img src="typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/arrow-left.svg" alt="back" /> <f:translate key="backinmenu" extensionName="ns_theme_hohenlohe" /></a>
+                </div>
+
+                <div class="nav-bottom">
+                    <div class="nav-bottom-wrapper">
+                        <div class="quick-links-block">
+                            <f:if condition="{MetaMenu}">
+                                <div class="quick-blog-wrapper">
+                                    <f:for each="{MetaMenu}" as="item">
+                                        <f:if condition="{item.data.layout} == 1">
+                                            <f:then>
+                                                <a class="blog-link blog-link-active" href="{item.link}">
+                                                    {item.title}
+                                                </a>
+                                            </f:then>
+                                            <f:else>
+                                                <a class="blog-link" href="{item.link}">
+                                                    {item.title}
+                                                </a>
+                                            </f:else>
+                                        </f:if>
+                                    </f:for>
+                                </div>
+                            </f:if>
+                            <f:if condition="{FooterMenu}">
+                                <div class="quick-links-wrapper">
+                                    <div class="quick-links">
+                                        <ul>
+                                            <f:for each="{FooterMenu}" as="item">
+                                                <li>
+                                                    <a href="{item.link}">
+                                                        {item.title}
+                                                    </a>
+                                                </li>
+                                            </f:for>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </f:if>
+                        </div>
+                        <div class="social-links-block">
+                            <div class="social-links">
+                                <ul>
+                                    <f:if condition="{settings.childSettings.facebook}">
+                                        <li>
+                                            <f:link.typolink parameter="{settings.childSettings.facebook}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></f:link.typolink>
+                                        </li>
+                                    </f:if>
+                                    <f:if condition="{settings.childSettings.youtube}">
+                                        <li>
+                                            <f:link.typolink parameter="{settings.childSettings.youtube}" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></f:link.typolink>
+                                        </li>
+                                    </f:if>
+                                    <f:if condition="{settings.childSettings.instagram}">
+                                        <li>
+                                            <f:link.typolink parameter="{settings.childSettings.instagram}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></f:link.typolink>
+                                        </li>
+                                    </f:if>
+                                    <f:if condition="{settings.childSettings.linkedin}">
+                                        <li>
+                                            <f:link.typolink parameter="{settings.childSettings.linkedin}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></f:link.typolink>
+                                        </li>
+                                    </f:if>
+                                    <f:if condition="{settings.childSettings.xing}">
+                                        <li>
+                                            <f:link.typolink parameter="{settings.childSettings.xing}" target="_blank"><i class="fa fa-xing" aria-hidden="true"></i></f:link.typolink>
+                                        </li>
+                                    </f:if>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="left-menu-item left-menu-item--search">
+                
+
+                <div class="menu-trigger">
+                    <div class="bars"></div>
+                    <div class="bars"></div>
+                    <div class="bars"></div>
+                </div>
+
+                <!-- language selection -->
+                <!-- <div class="language-selection-wrapper">
+                    <div class="language-wrap custom-dropdown-wrap">
+                        <f:if condition="{languageNavigation-> f:count()} > 1">
+                            <a class="lang-select selected-val" href="javascript:;">
+                                <f:cObject typoscriptObjectPath="menu.activeLang" />
+                            </a>
+                            <ul class="custom-dropdown">
+                                <f:for each="{languageNavigation}" as="lan" iteration="i">
+                                    <li>
+                                        <a href="{lan.link}">
+                                            {lan.navigationTitle}
+                                        </a>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                        <f:comment>
+                            <f:cObject typoscriptObjectPath="menu.languageMenu" />
+                        </f:comment>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="left-menu-item">
+                <!-- Home Link Link -->
+                <div class="home-link-block">
+                    <a class="home-link" href="/">Startseite</a>
+                </div>
+
+                <!-- Newsletter Block -->
+                <div class="header-newsletter-block">
+                    <a class="newsletter-link" href="/newsletter">Newsletter</a>
+                </div>
+            </div>
+
+            <!-- Search Link -->
+            <f:if condition="{settings.childSettings.loginpage}">
+                <div class="header-member-block">
+                    <f:link.typolink class="member-link" parameter="{settings.childSettings.loginpage}">
+                        <span><f:translate key="user" extensionName="ns_theme_hohenlohe" /></span>
+                    </f:link.typolink>
+                </div>
+            </f:if>
+        </div>
+    </div>
+    <div class="nav-progress"></div>
+</header>
+<!-- END OF PAGE HEADER -->

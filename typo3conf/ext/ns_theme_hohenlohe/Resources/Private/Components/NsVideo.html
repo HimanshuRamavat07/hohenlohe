@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:if condition="{content.videoUrl} || {image}">
+        <section id="c{data.uid}" class="video-section">
+            <div class="container">
+                <div class="cookieconsent-optout-marketing videoHint">
+                    <a class="cookieBotRenew" href="javascript:Cookiebot.renew()">
+                        <div class="videoHintImg"></div>
+                        <div class="videoHintText">
+                            <div class="VideoHintTextInner"> Bitte <span> akzeptieren Sie die Marketing Cookies,
+                                </span> um dieses Video anzusehen. </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cookieconsent-optin-marketing">
+                    <div class="video">
+                        <div class="cover-image bg-image" style="background-image: url({f:uri.image(image: '{image.0}',width:'1140c', height:'644c')})">
+                            <a href="javascript:;" class="play-button">
+                                <img src="typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/play-button.svg" alt="Icon">
+                            </a>
+                            <div class="video-area" data-videourl="{content.videoUrl}">
+                                <iframe class="lazyload" data-src="{content.videoUrl}" data-cookieconsent="marketing" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </f:if>
+</html>

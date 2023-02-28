@@ -1,0 +1,14 @@
+.static-star--rating {
+    --percent: calc(var(--rating)/5*100%);
+    display: inline-block;
+    line-height: 1;
+}
+
+.static-star--rating:after {
+    background: linear-gradient(90deg,#1A1A1A var(--percent),#c8d4e3 var(--percent));
+    content: attr(data-content);
+    letter-spacing: 3px;
+    -webkit-background-clip: text;
+    font-size: 25px;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,14 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+	elements {
+		company {
+            iconIdentifier = faf_companies-plugin-company
+            title = LLL:EXT:faf_companies/Resources/Private/Language/locallang_db.xlf:tx_faf_companies_company.name
+            description = LLL:EXT:faf_companies/Resources/Private/Language/locallang_db.xlf:tx_faf_companies_company.description
+            tt_content_defValues {
+                CType = list
+                list_type = fafcompanies_company
+            }
+        }
+	}
+	show = *
+}

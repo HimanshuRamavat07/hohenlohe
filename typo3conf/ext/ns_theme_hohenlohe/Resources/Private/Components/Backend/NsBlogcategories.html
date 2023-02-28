@@ -1,0 +1,126 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<style>
+    .blog-kategorien-title-block {
+        margin-bottom: 83px;
+    }
+    .blog-kategorien-title-block .sub-tag {
+        margin-bottom: 9px;
+    }
+    @media (min-width: 768px) {
+        .sub-tag {
+            margin-bottom: 30px;
+        }
+        .sub-tag {
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #F0BD42;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: -moz-inline-stack;
+            display: inline-block;
+            vertical-align: top;
+            zoom: 1;
+        }
+    }
+    .blog-kategorien h2 {
+        font-family: "Viga", Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        color: #FDB936;
+        margin-bottom: 0;
+    }
+    .blog-kategorien-content {
+        width: 100%;
+        text-align: center;
+        padding: 0 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+    .blog-kategorien-content p {
+        background-color: #fff;
+        padding: 0 24px;
+        border-bottom: 3px solid #FFB936;
+        color: #1A1A1A;
+        font-weight: 700;
+        letter-spacing: 4px;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        line-height: 24px;
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+    }
+    
+        .blog-kategorien-thumb {
+            margin-bottom: 50px;
+        }
+    
+</style>
+    <table class="table">
+        <tr>
+            <th colspan="2">
+                <h2>
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+                </h2>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <section class="blog-kategorien">
+                    <div class="container">
+                        <f:if condition="{flexformData.overline} || {flexformData.headline}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="blog-kategorien-title-block">
+                                        <f:if condition="{flexformData.overline}">
+                                            <span class="sub-tag">{flexformData.overline}</span>
+                                        </f:if>
+                                        <f:if condition="{flexformData.headline}">
+                                            <h2>{flexformData.headline}</h2>
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:if>
+                        <div class="row">
+                            <f:for each="{flexformData.categories}" as="category" iteration="i">
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="javascript:;" class="blog-kategorien-thumb">
+                                        <picture>
+                                            <source
+                                                srcset="{f:uri.image(src: '{category.container.image}', maxWidth: '1920', height:347c, width:347c, cropVariant: 'default')}"
+                                                media="(min-width: 1200px)">
+                                            <source srcset="{f:uri.image(src: '{category.container.image}', maxWidth: '1200', cropVariant: 'specialTablet')}"
+                                                smedia="(min-width: 768px)">
+                                            <img class="image-embed-item"
+                                                srcset="{f:uri.image(src: '{category.container.image}', width:'315c', height:'315c', cropVariant: 'specialMobile')}"
+                                                alt="Image">
+                                        </picture>
+                                        <f:if condition="{category.container.name}">
+                                            <div class="blog-kategorien-content">
+                                                <p><f:format.crop maxCharacters="200" append="...">{category.container.name}</f:format.crop></p>
+                                            </div>
+                                        </f:if>
+                                    </a>
+                                </div>
+                            </f:for>
+                        </div>
+                    </div>
+                </section>
+            </td>
+        </tr>
+        
+    </table>
+    
+</html>

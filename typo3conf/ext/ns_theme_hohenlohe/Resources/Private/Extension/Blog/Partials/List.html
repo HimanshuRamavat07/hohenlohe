@@ -1,0 +1,122 @@
+<div class="123 postlist{f:if(condition: type, then: ' postlist--{type}')}">
+    <f:if condition="{posts}">
+        <f:then>
+            <f:switch expression="{data.layout}">
+                <f:case value="1">
+                    <section class="blog-teaser">
+                        <div class="container">
+                            <f:if condition="{data.header} || {data.subheader}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="blog-teaser-title-block">
+                                            <f:if condition="{data.subheader}">
+                                                <span class="sub-tag">{data.subheader}</span>
+                                            </f:if>
+                                            <f:if condition="{data.header}">
+                                                <h2>{data.header}</h2>
+                                            </f:if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:if>
+                            <div class="row">
+                                <f:render section="ListPostsTeaser" arguments="{posts: posts}" />
+                            </div>
+                            <f:if condition="{settings.blogUid}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="blog-all-teaser-link">
+                                            <f:link.typolink class="btn" parameter="{settings.blogUid}">
+                                                <f:translate key="AlleBlogthemen" extensionName="ns_theme_hohenlohe" />
+                                            </f:link.typolink>                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:if>
+                        </div>
+                    </section>
+                </f:case>
+                <f:case value="2">
+                    <section class="blog-teaser blog-teaser-list">
+                        <div class="container">
+                            <f:if condition="{data.header} || {data.subheader}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="blog-teaser-title-block">
+                                            <f:if condition="{data.subheader}">
+                                                <span class="sub-tag">{data.subheader}</span>
+                                            </f:if>
+                                            <f:if condition="{data.header}">
+                                                <h2>{data.header}</h2>
+                                            </f:if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:if>
+                            <div class="row">
+                                <f:if condition="{posts->f:count()} > {settings.lists.pagination.itemsPerPage}">
+                                    <f:then>
+                                        <f:render section="PaginatePostsTeaser" arguments="{posts: posts, pagination:pagination}" />
+                                    </f:then>
+                                    <f:else>
+                                        <f:render section="ListPostsTeaser" arguments="{posts: posts}" />
+                                    </f:else>
+                                </f:if>
+                            </div>
+                        </div>
+                    </section>
+                </f:case>
+                <f:defaultCase>
+                    <f:if condition="{posts->f:count()} > {settings.lists.pagination.itemsPerPage}">
+                        <f:then>
+                            <f:render section="PaginatePosts" arguments="{posts: posts, pagination: pagination" />
+                        </f:then>
+                        <f:else>
+                            <f:render section="ListPosts" arguments="{posts: posts}" />
+                        </f:else>
+                    </f:if>
+                </f:defaultCase>
+            </f:switch>
+        </f:then>
+        <f:else>
+            <div class="alert alert-info" role="alert">
+                <strong><f:translate key="list.no_posts.title" /></strong><br><f:translate key="list.no_posts.message" />
+            </div>
+        </f:else>
+    </f:if>
+</div>
+<f:section name="PaginatePosts">
+    <f:if condition="{settings.lists.pagination.insertAbove}">
+        <f:render partial="Pagination/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+    </f:if>
+    <f:for each="{0: pagination.paginator.paginatedItems}" as="blogItems" iteration="iterator">
+    </f:for>
+    <f:if condition="{settings.lists.pagination.insertBelow}">
+        <f:render partial="Pagination/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+    </f:if>
+</f:section>
+<f:section name="ListPosts">
+    <f:for each="{posts}" as="post">
+        <blogvh:cache post="{post}" />
+        <f:render partial="List/Post" arguments="{_all}" />
+    </f:for>
+</f:section>
+<f:section name="ListPostsTeaser">
+
+    <f:for each="{posts}" as="post">
+        <blogvh:cache post="{post}" />
+        <f:render partial="List/Teaser" arguments="{_all}" />
+    </f:for>
+</f:section>
+<f:section name="PaginatePostsTeaser">
+    <f:if condition="{settings.lists.pagination.insertAbove}">
+        <f:render partial="Pagination/Pagination" arguments="{pagination: pagination, paginator: pagination.paginator}" />
+    </f:if>
+    <f:for each="{0: pagination.paginator.paginatedItems}" as="blogItems" iteration="iterator">
+        <f:render section="ListPostsTeaser" arguments="{posts: blogItems}" />
+    </f:for>
+    
+    <f:if condition="{settings.lists.pagination.insertBelow}">
+        <f:render partial="Pagination/Pagination" arguments="{pagination: pagination, paginator: pagination.paginator}" />
+    </f:if>
+</f:section>

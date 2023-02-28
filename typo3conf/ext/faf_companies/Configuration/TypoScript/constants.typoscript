@@ -1,0 +1,11 @@
+
+plugin.tx_fafcompanies_company {
+    view {
+        # cat=plugin.tx_fafcompanies_company/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:faf_companies/Resources/Private/Templates/
+        # cat=plugin.tx_fafcompanies_company/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:faf_companies/Resources/Private/Partials/
+        # cat=plugin.tx_fafcompanies_company/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:faf_companies/Resources/Private/Layouts/
+    }
+}

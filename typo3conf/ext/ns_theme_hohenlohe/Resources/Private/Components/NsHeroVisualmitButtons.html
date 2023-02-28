@@ -1,0 +1,50 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:if condition="{image} || {content.overline} || {content.headline} || {content.button2Link} || {content.button1Link}">
+		<section class="hero-visual-mit-buttons" id="c{data.uid}">
+	        <div class="container">
+	            <div class="slider-contents">
+	                <div class="landing-slider-content">
+	                	<f:if condition="{content.overline} || {content.headline}">
+		                	<div class="mit-slider-title">
+			                	<f:if condition="{content.overline}">
+			                        <span>{content.overline}</span>
+			                    </f:if>
+			                	<f:if condition="{content.headline}">
+			                    	<h1><f:format.raw>{content.headline}</f:format.raw></h1>
+			                    </f:if>
+			                </div>
+			            </f:if>
+	                    <f:if condition="{data.header}">
+			        		<h2>{data.header}</h2>
+			        	</f:if>
+	                    <f:if condition="{content.button2Link} || {content.button1Link}">
+		                    <ul class="slider-action-link">
+		                    	<f:if condition="{content.button1} && {content.button1Link}">
+		                    		<li><f:link.typolink additionalAttributes="{id:'{content.btnId1}'}" parameter="{content.button1Link}" class="slider-link">{content.button1}</f:link.typolink></li>
+		                    	</f:if>
+		                    	<f:if condition="{content.button2} && {content.button2Link}">
+		                    		<li><f:link.typolink additionalAttributes="{id:'{content.btnId2}'}" parameter="{content.button2Link}" class="slider-link">{content.button2}</f:link.typolink></li>
+		                    	</f:if>
+		                    </ul>
+		                </f:if>
+	                </div>
+	            </div>
+	        </div>
+	        <f:if condition="{image}">
+		        <div class="landing-slider-init owl-carousel">
+					<f:for each="{image}" as="file">
+						<div class="button-slide">
+							<div class="landing-slide" style="background-image: url({f:uri.image(image:'{file}',maxWidth:'2000',cropVariant: 'default')})"></div>
+							<div class="landing-slide-mobile" style="background-image: url({f:uri.image(image:'{file}',maxWidth:'2000', cropVariant: 'specialMobile')})"></div>
+							<div class="landing-slide-tablet" style="background-image: url({f:uri.image(image:'{file}',maxWidth:'2000', cropVariant: 'specialTablet')})"></div>
+						</div>
+					</f:for>
+		        </div>   
+	        </f:if> 
+
+	        <f:if condition="{content.breadcrumb}">
+	         	<f:cObject typoscriptObjectPath="lib.breadcrumb" />    
+	        </f:if>
+	    </section>
+	</f:if>
+</html>

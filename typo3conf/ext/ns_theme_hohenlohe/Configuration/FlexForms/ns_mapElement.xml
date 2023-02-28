@@ -1,0 +1,143 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Fields</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <mapImage>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:map.mapImage</label>
+                            <config>
+                                <type>inline</type>
+                                <minitems>1</minitems>
+                                <maxitems>1</maxitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_field>uid_foreign</foreign_field>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride>
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>gif,jpg,jpeg,png,svg</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_types type="array">
+                                    <numIndex index="0">
+                                        <showitem>--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <showitem>--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
+                                    </numIndex>
+                                </foreign_types>
+                                <foreign_match_fields>
+                                    <fieldname>image</fieldname>                                    <!-- CAUTION!! Replace "fal" with the variable name of this field! -->
+                                </foreign_match_fields>
+                                <appearance type="array">
+                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
+                                    <headerThumbnail>
+                                        <field>uid_local</field>
+                                        <height>64</height>
+                                        <width>64</width>
+                                    </headerThumbnail>
+                                    <enabledControls>
+                                        <info>1</info>
+                                        <new>0</new>
+                                        <dragdrop>0</dragdrop>
+                                        <sort>1</sort>
+                                        <hide>0</hide>
+                                        <delete>1</delete>
+                                        <localize>1</localize>
+                                    </enabledControls>
+                                    <createNewRelationLinkTitle>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
+                                </appearance>
+                                <behaviour>
+                                    <localizationMode>select</localizationMode>
+                                    <localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+                                </behaviour>
+                                <overrideChildTca>
+                                    <columns type="array">
+                                        <uid_local type="array">
+                                            <config type="array">
+                                                <appearance type="array">
+                                                    <elementBrowserType>file</elementBrowserType>
+                                                    <elementBrowserAllowed>jpg,png,svg,jpeg,gif</elementBrowserAllowed>
+                                                </appearance>
+                                            </config>
+                                        </uid_local>
+                                    </columns>
+                                    <types type="array">
+                                        <numIndex index="2">
+                                            <showitem>--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
+                                        </numIndex>
+                                    </types>
+                                </overrideChildTca>
+                            </config>
+                        </TCEforms>
+                    </mapImage>
+                    <locationsPin>
+                        <title>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:map.locations</title>
+                        <section>1</section>
+                        <type>array</type>
+                        <el>
+                            <container>
+                                <type>array</type>
+                                <title>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.addmore</title>
+                                <el>
+                                    <pinName>
+                                        <TCEforms>
+                                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:map.pinName</label>
+                                            <config>
+                                                <type>input</type>
+                                                <size>50</size>
+                                                <eval>trim, required</eval>
+                                            </config>
+                                        </TCEforms>
+                                    </pinName>
+                                    <topPosition>
+                                        <TCEforms>
+                                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:map.topPosition</label>
+                                            <config>
+                                                <type>input</type>
+                                                <size>50</size>
+                                                <eval>flot, required</eval>
+                                            </config>
+                                        </TCEforms>
+                                    </topPosition>
+                                    <leftPosition>
+                                        <TCEforms>
+                                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:map.leftPosition</label>
+                                            <config>
+                                                <type>input</type>
+                                                <size>50</size>
+                                                <eval>flot, required</eval>
+                                            </config>
+                                        </TCEforms>
+                                    </leftPosition>
+                                    <tooltipContent>
+                                        <TCEforms>
+                                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:map.tooltipContent</label>
+                                            <config>
+                                                <type>text</type>
+                                                <rows>5</rows>
+                                                <cols>30</cols>
+                                                <eval>trim, required</eval>
+                                                <enableRichtext>1</enableRichtext>
+                                            </config>
+                                        </TCEforms>
+                                    </tooltipContent>
+                                </el>
+                            </container>
+                        </el>
+                    </locationsPin>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

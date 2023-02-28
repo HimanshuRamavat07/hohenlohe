@@ -1,0 +1,22 @@
+<f:layout name="Default" />
+<f:section name="Content">
+    <f:if condition="{archiveData}">
+        <f:then>
+            <f:comment>If year is missing show an overview of the archive.</f:comment>
+            <h1 class="page__title">
+                <span class="page__titletext"><f:translate key="headline.archive"/></span>
+            </h1>
+            <f:render partial="Archive/Menu" arguments="{settings: settings, items: archiveData}" />
+        </f:then>
+        <f:else>
+            <f:comment>If a year/+month is selected show posts matching.</f:comment>
+            <h1 class="page__title">
+                <span class="page__titletext"><f:if condition="{month}">{f:format.date(format: '{settings.widgets.archive.monthDateFormat}', date: timestamp)}</f:if> {year}</span>
+                <blogvh:link.archive class="page__titlelink" rss="true" year="{year}" month="{month}">
+                    <span class="blogicon"><f:render partial="General/SocialIcons" section="Rss" optional="true" /></span>
+                </blogvh:link.archive>
+            </h1>
+            <f:render partial="List" arguments="{_all}" />
+        </f:else>
+    </f:if>
+</f:section>

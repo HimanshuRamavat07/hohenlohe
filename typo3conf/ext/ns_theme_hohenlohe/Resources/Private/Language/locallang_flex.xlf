@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-07-24T20:37:42Z">
+		<header/>
+		<body>
+            <trans-unit id="palette.access">
+                <source>Access</source>
+            </trans-unit>
+            <trans-unit id="general.headline">
+                <source>Headline</source>
+            </trans-unit>
+            <trans-unit id="general.subheadline">
+                <source>Sub Headline</source>
+            </trans-unit>
+            <trans-unit id="general.image">
+                <source>Upload image</source>
+            </trans-unit>
+            <trans-unit id="general.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="general.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="general.overline">
+                <source>Overline</source>
+            </trans-unit>
+            <trans-unit id="general.formHtml">
+                <source>Form HTML</source>
+            </trans-unit>
+            <trans-unit id="general.isPopup">
+                <source>Popup</source>
+            </trans-unit>
+            <trans-unit id="general.zitat">
+                <source>Zitat</source>
+            </trans-unit>
+            <trans-unit id="general.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="general.beschreibung">
+                <source>Beschreibung</source>
+            </trans-unit>
+            <trans-unit id="general.coverImage">
+                <source>Cover image</source>
+            </trans-unit>
+            <trans-unit id="general.videoUrl">
+                <source>Video URL (Youtube embeded video url)</source>
+            </trans-unit>
+            <trans-unit id="general.subline">
+                <source>Subline</source>
+            </trans-unit>
+            <trans-unit id="general.teaser1">
+                <source>Teaser 1</source>
+            </trans-unit>
+            <trans-unit id="general.teaser2">
+                <source>Teaser 2</source>
+            </trans-unit>
+            <trans-unit id="general.teaser3">
+                <source>Teaser 3</source>
+            </trans-unit>
+            <trans-unit id="general">
+                <source>General</source>
+            </trans-unit>
+            <trans-unit id="general.addmore">
+                <source>Add more</source>
+            </trans-unit>
+            <trans-unit id="general.content">
+                <source>Content</source>
+            </trans-unit>
+            <trans-unit id="accordion.title">
+                <source>Accordion</source>
+            </trans-unit>
+            <trans-unit id="map.mapImage">
+                <source>Map image</source>
+            </trans-unit>
+            <trans-unit id="map.topPosition">
+                <source>Bottom position (%)</source>
+            </trans-unit>
+            <trans-unit id="map.pinName">
+                <source>Location name </source>
+            </trans-unit>
+            <trans-unit id="map.leftPosition">
+                <source>Left position (%)</source>
+            </trans-unit>
+            <trans-unit id="map.tooltipContent">
+                <source>Tooltip content</source>
+            </trans-unit>
+            <trans-unit id="general.backgroundColor">
+                <source>Background color</source>
+            </trans-unit>
+            <trans-unit id="general.white">
+                <source>White</source>
+            </trans-unit>
+            <trans-unit id="general.yellow">
+                <source>Yellow</source>
+            </trans-unit>
+            <trans-unit id="general.spacing">
+                <source>Spacing</source>
+            </trans-unit>
+            <trans-unit id="general.large">
+                <source>Large</source>
+            </trans-unit>
+            <trans-unit id="general.small">
+                <source>Small</source>
+            </trans-unit>
+            <trans-unit id="general.medium">
+                <source>Medium</source>
+            </trans-unit>
+            <trans-unit id="general.lineWidth">
+                <source>Line width</source>
+            </trans-unit>
+            <trans-unit id="general.fluid">
+                <source>Fluid</source>
+            </trans-unit>
+            <trans-unit id="general.container">
+                <source>Container</source>
+            </trans-unit>
+            <trans-unit id="general.button1">
+                <source>Button 1</source>
+            </trans-unit>
+            <trans-unit id="general.button1Link">
+                <source>Button 1 link</source>
+            </trans-unit>
+            <trans-unit id="general.button2">
+                <source>Button 2</source>
+            </trans-unit>
+            <trans-unit id="general.button2Link">
+                <source>Button 2 link</source>
+            </trans-unit>
+            <trans-unit id="general.slider">
+                <source>Slider</source>
+            </trans-unit>
+            <trans-unit id="general.linkText">
+                <source>Link text</source>
+            </trans-unit>
+
+            <trans-unit id="general.layout">
+                <source>Layout</source>
+            </trans-unit>
+            <trans-unit id="general.secondBilder">
+                <source>Second images</source>
+            </trans-unit>
+            <trans-unit id="general.100">
+                <source>100%</source>
+            </trans-unit>
+            <trans-unit id="general.33_66">
+                <source>33:66</source>
+            </trans-unit>
+            <trans-unit id="general.66_33">
+                <source>66:33</source>
+            </trans-unit>
+            <trans-unit id="general.50_50">
+                <source>50:50</source>
+            </trans-unit>
+            <trans-unit id="general.withYelloBg">
+                <source>With yellow Background</source>
+            </trans-unit>
+            <trans-unit id="general.cateLink">
+                <source>Category listing page ID</source>
+            </trans-unit>
+            <trans-unit id="general.teaser">
+                <source>Teaser</source>
+            </trans-unit>
+            <trans-unit id="general.btnText">
+                <source>Button text</source>
+            </trans-unit>
+            <trans-unit id="general.btnLink">
+                <source>Button link</source>
+            </trans-unit>
+            <trans-unit id="general.companies">
+                <source>Companies</source>
+            </trans-unit>
+            <trans-unit id="general.addCompanies">
+                <source>Add companies</source>
+            </trans-unit>
+            <trans-unit id="general.logo">
+                <source>Company logo</source>
+            </trans-unit>
+
+            <trans-unit id="general.modelBannerImage">
+                <source>Model banner image</source>
+            </trans-unit>
+            <trans-unit id="general.modelBannerTitle">
+                <source>Model banner title</source>
+            </trans-unit>
+            <trans-unit id="general.modelContent">
+                <source>Model content</source>
+            </trans-unit>
+            <trans-unit id="general.hoverLogo">
+                <source>Hover logo</source>
+            </trans-unit>
+            <trans-unit id="general.elementReference">
+                <source>Select companies to display</source>
+            </trans-unit>
+            <trans-unit id="general.refContentElement">
+                <source>Select content element</source>
+            </trans-unit>
+            <trans-unit id="general.categories">
+                <source>Categories</source>
+            </trans-unit>
+            <trans-unit id="blogTeaser">
+                <source>Blog Teaser</source>
+            </trans-unit>
+            <trans-unit id="blogList">
+                <source>Blog List</source>
+            </trans-unit>
+            <trans-unit id="map.locations">
+                <source>Locations </source>
+            </trans-unit>
+            <trans-unit id="general.btnId">
+                <source>Button ID</source>
+            </trans-unit>
+             <trans-unit id="general.sliderWidth">
+                <source>Slider Width</source>
+            </trans-unit>
+
+            <trans-unit id="backToList">
+                <source>ZURÜCK ZUR ÜBERSICHT</source>
+            </trans-unit>
+            <trans-unit id="more-link">
+                <source>Weiterlesen</source>
+            </trans-unit>
+            <trans-unit id="list_nonewsfound">
+                <source>In Hohenlohe ist immer was los!</source>
+            </trans-unit>
+            <trans-unit id="list_nonewsfound2">
+                <source>Sollten hier aktuell keine Termine stehen, wird sich das sicher ganz schnell ändern. Bald wieder vorbeischauen lohnt sich also.</source>
+            </trans-unit>
+            <trans-unit id="general.infoText">
+                <source>Responsive Infobox Text</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

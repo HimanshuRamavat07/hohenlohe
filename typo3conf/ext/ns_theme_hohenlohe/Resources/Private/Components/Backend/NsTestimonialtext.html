@@ -1,0 +1,125 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<style>
+    .bg-yellow {
+        background-color: #FFB936;
+    }
+    @media (min-width: 576px){
+
+        .testimonial-zitat {
+            padding: 40px 0 45px;
+        }
+        .testimonial-zitat {
+            margin: 20px 0;
+            padding: 25px 0 27px;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            color: inherit;
+            position: relative;
+        }
+    }
+    @media (min-width: 576px)
+    {
+        .testimonial-zitat:before, .testimonial-zitat:after {
+            font-size: 110px;
+            top: -35px;
+            height: 60px;
+            padding: 0 4px 0 10px;
+        }
+        .testimonial-zitat:before, .testimonial-zitat:after {
+            content: '„';
+            color: inherit;
+            font-size: 83px;
+            line-height: 0;
+            background-color: #FDB936;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            height: 40px;
+            padding: 0 10px;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+    }
+    @media (min-width: 768px){
+        [class*='col-'], .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+    }
+    @media (min-width: 1920px){
+        .testimonial {
+            padding: 80px 0;
+        }
+    }
+    .testimonial .sub-tag {
+        color: inherit;
+        margin-bottom: 8px;
+    }
+    .sub-tag {
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: white;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+    }
+</style>
+    <table class=" bg-yellow" border="0">
+        <tr>
+            <th colspan="2">
+                <h2>
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+                </h2>
+            </th>
+        </tr>       
+        <div class="bg-yellow">
+            <div class="container">
+                <div class="testimonial">
+                    <tr>
+                        <td colspan="2">
+                            <f:if condition="{flexformData.overline}">
+                                <span class="sub-tag">{flexformData.overline}</span>
+                            </f:if>
+                            <f:if condition="{flexformData.zitat}">
+                                <div class="testimonial-zitat">
+                                    <f:format.raw>{flexformData.zitat}</f:format.raw>
+                                </div>
+                            </f:if>                                
+                        </td>
+                    </tr>
+                    <f:if condition=" {flexformData.name} || {flexformData.beschreibung}">
+                        <tr>
+                            <div class="profile-block">
+                                <f:if condition="{image}">
+                                    <td>
+                                        <div class="profile-image">
+                                            <div class="profile-image-frame">
+                                                <f:for each="{image}" as="file" iteration="i">
+                                                    <f:image image="{file}" treatIdAsReference="1" height="500c" width="500c" />
+                                                </f:for>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </f:if>
+                                <td>
+                                    <div class="profile-content">
+                                        <f:if condition="{flexformData.name}">
+                                            <p class="profile-name">{flexformData.name}</p>
+                                        </f:if>
+                                        <f:if condition="{flexformData.beschreibung}">
+                                            <p class="profile-description">{flexformData.beschreibung}</p>
+                                        </f:if>
+                                    </div>
+                                </td>
+                            </div>
+                        </tr>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+    </table>
+</html>

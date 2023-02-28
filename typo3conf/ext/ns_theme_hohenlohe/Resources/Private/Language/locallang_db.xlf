@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-06T20:41:06Z" product-name="NITSANpageadds">
+		<header/>
+		<body>
+            <trans-unit id="nsContainerSection">
+                <source>Content section</source>
+            </trans-unit>
+            <trans-unit id="nsContainerSection.des">
+                <source>Add content section</source>
+            </trans-unit>
+            <trans-unit id="palette.access">
+                <source>Access</source>
+            </trans-unit>
+            <trans-unit id="headline">
+                <source>Headline</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_testimonialText">
+                <source>CE: Testimonial Text</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_testimonialText.desc">
+                <source>Add CE: Testimonial Text element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_testimonialVideo">
+                <source>CE: Testimonial: Video</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_testimonialVideo.desc">
+                <source>Add CE: Testimonial: Video element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_video">
+                <source>CE: Video</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_video.desc">
+                <source>Add CE: Video element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_bilder">
+                <source>CE: Bilder</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_bilder.desc">
+                <source>Add CE: Bilder element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_teaserElement">
+                <source>CE: Teaser-Element</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_teaserElement.desc">
+                <source>Add CE: Teaser-Element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_branchenhighlights">
+                <source>CE: Branchenhighlights</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_branchenhighlights.desc">
+                <source>Add CE: Branchenhighlights element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_mapElement">
+                <source>CE: Map Element</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_mapElement.desc">
+                <source>Add CE: Map Element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_spacingElement">
+                <source>CE: Spacing Element</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_spacingElement.desc">
+                <source>Add CE: Spacing Element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_horizontaleLine">
+                <source>CE: Horizontale Line</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_horizontaleLine.desc">
+                <source>Add CE: Horizontale Line.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_iconSammlung">
+                <source>CE: Icon-Sammlung</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_iconSammlung.desc">
+                <source>Add CE: Icon-Sammlung element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_heroVisualmitContent">
+                <source>CE: Hero-Visual mit Content</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_heroVisualmitContent.desc">
+                <source>Add CE: Hero-Visual mit Content element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_heroVisualmitButtons">
+                <source>CE: Hero-Visual mit Buttons</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_heroVisualmitButtons.desc">
+                <source>Add CE: Hero-Visual mit Buttons element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_bildundThemenslider">
+                <source>CE: Bild- und Themenslider</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_bildundThemenslider.desc">
+                <source>Add CE: Bild- und Themenslider element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_animierterBildSlider">
+                <source>CE: Animierter Bild-Slider</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_animierterBildSlider.desc">
+                <source>Add CE: Animierter Bild-Slider element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_textandlinks">
+                <source>CE: Text und Links</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_textandlinks.desc">
+                <source>Add CE Text und Links element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_blogCategories">
+                <source>Blog categories</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_blogCategories.desc">
+                <source>Add blog categories element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_unternehmensvorstellung">
+                <source>CE: Unternehmensvorstellung</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_unternehmensvorstellung.desc">
+                <source>Add CE: Unternehmensvorstellung element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_mitgliederTeaser">
+                <source>CE: mitgliederTeaser</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_mitgliederTeaser.desc">
+                <source>Add CE: mitgliederTeaser element.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_newsletter">
+                <source>CE: Newsletter</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_newsletter.desc">
+                <source>Add CE: Newsletter element.</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

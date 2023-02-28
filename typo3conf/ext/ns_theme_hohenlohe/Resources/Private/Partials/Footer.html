@@ -1,0 +1,95 @@
+<!-- START OF MAIN FOOTER -->
+<footer class="page">
+    <div class="container">
+        <div class="footer-top">
+            <f:if condition="{settings.childSettings.logo_text}">
+                <div class="footer-logo">
+                    <f:link.typolink parameter="{settings.rootpage}">
+                        <span>{settings.childSettings.logo_text}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12.954" height="12.887"><path data-name="Path 101" d="M12.921 4.62H8.31V0h-3.7v4.62H0v1.84a1.849 1.849 0 001.882 1.8h2.762v4.623h3.7V8.265h4.611z" fill="#F7BE00"/></svg>
+                    </f:link.typolink>
+                </div>
+            </f:if>
+            <f:if condition="{MainMenu}">
+                <div class="footer-main-links">
+                    <f:for each="{MainMenu}" as="item">
+                        <a href="{item.link}">
+                            {item.title}
+                        </a>
+                    </f:for>
+                </div>
+            </f:if>
+        </div>
+        <div class="footer-bottom">
+            <f:if condition="{MetaMenu}">
+                <div class="footer-blog-link">
+                    <f:for each="{MetaMenu}" as="item">
+                        <a href="{item.link}">
+                            {item.title}
+                        </a>
+                    </f:for>
+                </div>
+            </f:if>
+           
+            <div class="footer-bottom-links">
+                <f:if condition="{FooterMenu}">
+                    <div class="footer-quick-links">
+                        <ul>
+                            <f:for each="{FooterMenu}" as="item">
+                                <li>
+                                    <a href="{item.link}">
+                                        {item.title}
+                                    </a>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </div>
+                </f:if>
+                
+                <div class="footer-social-links">
+                    <ul>
+                        <f:if condition="{settings.childSettings.facebook}">
+                            <li>
+                                <f:link.typolink parameter="{settings.childSettings.facebook}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></f:link.typolink>
+                            </li>
+                        </f:if>
+                        <f:if condition="{settings.childSettings.youtube}">
+                            <li>
+                                <f:link.typolink parameter="{settings.childSettings.youtube}" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></f:link.typolink>
+                            </li>
+                        </f:if>
+                        <f:if condition="{settings.childSettings.instagram}">
+                            <li>
+                                <f:link.typolink parameter="{settings.childSettings.instagram}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></f:link.typolink>
+                            </li>
+                        </f:if>
+                        
+                        <f:if condition="{settings.childSettings.linkedin}">
+                            <li>
+                                <f:link.typolink parameter="{settings.childSettings.linkedin}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></f:link.typolink>
+                            </li>
+                        </f:if>
+                        <f:if condition="{settings.childSettings.xing}">
+                            <li>
+                                <f:link.typolink parameter="{settings.childSettings.xing}" target="_blank"><i class="fa fa-xing" aria-hidden="true"></i></f:link.typolink>
+                            </li>
+                        </f:if>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:;" class="goto-top"><img src="typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/arrow-icon.png" alt="Icon"></a>
+</footer>
+<!-- END OF MAIN FOOTER -->
+<!-- Pre loader -->
+<div class="preloader" style="display:block;">
+    <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+    </div>
+</div>
+<!-- end Pre loader -->

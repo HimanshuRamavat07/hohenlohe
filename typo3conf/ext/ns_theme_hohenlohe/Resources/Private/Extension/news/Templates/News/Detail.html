@@ -1,0 +1,248 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Detail" />
+
+<!--
+	=====================
+		News/Detail.html
+-->
+
+<f:section name="content">
+	<f:if condition="{newsItem}">
+        <f:then>
+            <section class="content-section bg-white" id="c{contentObjectData.uid}">
+                <div class="container">
+                    <span class="sub-tag">
+                        <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'d-m-Y')}">
+                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                        </time>
+                    </span>
+                    <f:if condition="{newsItem.title}">
+                        <div class="header">
+                            <h1 itemprop="headline">{newsItem.title}</h1>
+                        </div>
+                    </f:if>
+                    <n:renderMedia news="{newsItem}" imgClass="img-responsive" videoClass="video-wrapper" audioClass="audio-wrapper">
+                        <f:render partial="Detail/MediaContainer" arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
+                        <f:if condition="{newsItem.teaser}">
+                            <!-- teaser -->
+                            <div class="blog-description" itemprop="description">
+                                <h5><f:format.raw>{newsItem.teaser}</f:format.raw></h5>
+                            </div>
+                        </f:if>
+
+                        <f:if condition="{newsItem.contentElements}">
+                            <!-- content elements -->
+                            <f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">{newsItem.contentElementIdList}</f:cObject>
+                        </f:if>
+
+                        <!-- main text -->
+                        <div class="news-text-wrap" itemprop="articleBody">
+                            <f:format.html>{newsItem.bodytext}</f:format.html>
+                        </div>
+
+                        <f:if condition="{settings.backPid}">
+                            <!-- Link Back -->
+                            <div class="news-backlink-wrap">
+                                <f:link.page pageUid="{settings.backPid}" class="news-backlink">
+                                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:backToList"/>
+                                </f:link.page>
+                            </div>
+                        </f:if>
+                    </n:renderMedia>
+
+                    <n:format.nothing>
+                        <n:excludeDisplayedNews newsItem="{newsItem}" />
+                        <f:if condition="{settings.detail.showMetaTags}">
+                            <f:render partial="Detail/Opengraph" arguments="{newsItem: newsItem, settings:settings}" />
+                        </f:if>
+                        <f:if condition="{newsItem.alternativeTitle}">
+                            <f:then>
+                                <n:titleTag>
+                                    <f:format.htmlentitiesDecode>{newsItem.alternativeTitle}</f:format.htmlentitiesDecode>
+                                </n:titleTag>
+                            </f:then>
+                            <f:else>
+                                <n:titleTag>
+                                    <f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
+                                </n:titleTag>
+                            </f:else>
+                        </f:if>
+                    </n:format.nothing>
+                </div>
+            </section>
+
+
+
+			<f:if condition="{settings.detail.showSocialShareButtons}">
+				<f:comment>
+					Care about the privacy of your readers?
+					Checkout https://typo3.org/extensions/repository/view/rx_shariff
+					and it will be used automatically!
+				</f:comment>
+				<n:extensionLoaded extensionKey="rx_shariff">
+					<f:render partial="Detail/Shariff" />
+				</n:extensionLoaded>
+			</f:if>
+
+            <f:if condition="{newsItem.allRelatedSorted}">
+                <!-- Related news records -->
+                <div class="spacing-element spacing-element--medium spacing-element--bg-white"></div>
+                <div class="news-related-news">
+                    <section class="blog-teaser blog-teaser-list">
+                        <div class="container">
+                            <f:switch expression="{settings.templateLayout}">
+                                <f:case value="0">
+                                    <f:if condition="{contentObjectData.header} || {contentObjectData.subheader}">
+                                        <div class="blog-title">
+                                            <f:if condition="{contentObjectData.header}">
+                                                <h3>{contentObjectData.header}</h3>
+                                            </f:if>
+                                            <f:if condition="{contentObjectData.subheader}">
+                                                <h5>{contentObjectData.subheader}</h5>
+                                            </f:if>
+                                        </div>
+                                    </f:if>
+                                    <div class="row">
+                                        <f:for each="{newsItem.allRelatedSorted}" as="related">
+                                            <div class="col-md-4 col-sm-6">
+                                                <div class="blog-teaser-thumb">
+                                                    <f:if condition="{related.falMedia}">
+                                                        <!-- media preview element -->
+                                                        <f:then>
+                                                            <div class="blog-teaser-image">
+                                                                <n:link newsItem="{related}" settings="{settings}" title="{related.title}">
+                                                                    <f:alias map="{mediaElement: related.falMedia.0}">
+                                                                        <f:if condition="{mediaElement.originalResource.type} == 2">
+                                                                            <f:image image="{mediaElement}"
+                                                                                title="{mediaElement.originalResource.title}"
+                                                                                alt="{mediaElement.originalResource.alternative}"
+                                                                                maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}"
+                                                                                maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}" />
+                                                                        </f:if>
+                                                                        <f:if condition="{mediaElement.originalResource.type} == 4">
+                                                                            <f:render partial="Detail/MediaVideo"
+                                                                                arguments="{mediaElement: mediaElement}" />
+                                                                        </f:if>
+                                                                        <f:if condition="{mediaElement.originalResource.type} == 5">
+                                                                            <f:image image="{mediaElement}"
+                                                                                title="{mediaElement.originalResource.title}"
+                                                                                alt="{mediaElement.originalResource.alternative}"
+                                                                                maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}"
+                                                                                maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}" />
+                                                                        </f:if>
+                                                                    </f:alias>
+                                                                </n:link>
+                                                            </div>
+                                                        </f:then>
+                                                        <f:else>
+                                                            <f:if condition="{settings.displayDummyIfNoMedia}">
+                                                                <div class="news-img-wrap">
+                                                                    <span class="no-media-element">
+                                                                        <n:link newsItem="{newsItem}" settings="{settings}"
+                                                                            title="{newsItem.title}">
+                                                                            <f:image src="{settings.list.media.dummyImage}" title="" alt=""
+                                                                                maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}"
+                                                                                maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}" />
+                                                                        </n:link>
+                                                                    </span>
+                                                                </div>
+                                                            </f:if>
+                                                        </f:else>
+                                                    </f:if>
+                                                    <div class="blog-teaser-content">
+                                                        <f:if condition="{related.datetime}">
+                                                            <span class="news-list-date sub-tag">
+                                                                <time itemprop="datePublished"
+                                                                    datetime="{f:format.date(date:related.datetime, format:'d.m.Y')}">
+                                                                    <f:format.date format="d.m.Y">{related.datetime}</f:format.date>
+                                                                </time>
+                                                            </span>
+                                                        </f:if>
+                                                        <f:if condition="{related.title}">
+                                                            <h5 class="postlist__posttitle">
+                                                                <n:link newsItem="{related}" settings="{settings}" title="{related.title}">{related.title} </n:link>
+                                                            </h5>
+                                                        </f:if>
+                                                        <p class="postlist__postdescription">
+                                                            <n:removeMediaTags>
+                                                                <f:if condition="{newsItem.teaser}">
+                                                                    <f:then>
+                                                                        <div itemprop="description">{newsItem.teaser ->
+                                                                            f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+                                                                            respectWordBoundaries:'1') -> f:format.html()}</div>
+                                                                    </f:then>
+                                                                    <f:else>
+                                                                        <div itemprop="description">{newsItem.bodytext ->
+                                                                            f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+                                                                            respectWordBoundaries:'1') -> f:format.html()}</div>
+                                                                    </f:else>
+                                                                </f:if>
+                                                            </n:removeMediaTags>
+                                                        </p>
+                                                    </div>
+                                                    <n:link newsItem="{related}" settings="{settings}" class="icon-link" title="{related.title}">
+                                                        <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:more-link" />
+                                                    </n:link>
+                                                </div>
+                                            </div>
+                                        </f:for>
+                                    </div>
+                                </f:case>
+                                <f:case value="1">
+                                    <f:if condition="{contentObjectData.header} || {contentObjectData.subheader}">
+                                        <div class="blog-title">
+                                            <f:if condition="{contentObjectData.header}">
+                                                <h3>{contentObjectData.header}</h3>
+                                            </f:if>
+                                            <f:if condition="{contentObjectData.subheader}">
+                                                <h5>{contentObjectData.subheader}</h5>
+                                            </f:if>
+                                        </div>
+                                    </f:if>
+                                    <div class="row">
+                                        <f:for each="{newsItem.allRelatedSorted}" as="related">
+                                            <div class="col-md-4 col-sm-6">
+                                                <div class="blog-teaser-thumb">
+                                                    <div class="blog-teaser-content">
+                                                        <f:if condition="{related.datetime}">
+                                                            <span class="news-list-date sub-tag">
+                                                                <time itemprop="datePublished"
+                                                                    datetime="{f:format.date(date:related.datetime, format:'d.m.Y')}">
+                                                                    <f:format.date format="d.m.Y">{related.datetime}</f:format.date>
+                                                                </time>
+                                                            </span>
+                                                        </f:if>
+                                                        <f:if condition="{related.title}">
+                                                            <h5 class="postlist__posttitle">
+                                                                <n:link newsItem="{related}" settings="{settings}" title="{related.title}">{related.title} </n:link>
+                                                            </h5>
+                                                        </f:if>
+                                                    </div>
+                                                    <n:link newsItem="{related}" settings="{settings}" class="icon-link" title="{related.title}">
+                                                        <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:more-link" />
+                                                    </n:link>
+                                                </div>
+                                            </div>
+                                        </f:for>
+                                    </div>
+                                </f:case>
+                                <f:defaultCase></f:defaultCase>
+                            </f:switch>
+                        </div>
+                    </section>
+                </div>
+			</f:if>
+			<!-- related things -->
+
+			</div>
+		</f:then>
+		<f:else>
+
+		</f:else>
+	</f:if>
+</f:section>
+</html>

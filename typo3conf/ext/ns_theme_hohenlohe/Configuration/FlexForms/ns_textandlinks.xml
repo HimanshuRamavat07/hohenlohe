@@ -1,0 +1,55 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Fields</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <backgroundColor>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.backgroundColor</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.white</numIndex>
+                                        <numIndex index="1">white</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.yellow</numIndex>
+                                        <numIndex index="1">yellow</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </backgroundColor>
+                    <overline>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.overline</label>
+                            <config>
+                                <type>input</type>
+                                <size>50</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </overline>
+                    <textAndLink>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.content</label>
+                            <config>
+                                <type>text</type>
+                                <rows>5</rows>
+                                <cols>30</cols>
+                                <eval>trim, required</eval>
+                                <enableRichtext>1</enableRichtext>
+                            </config>
+                        </TCEforms>
+                    </textAndLink>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

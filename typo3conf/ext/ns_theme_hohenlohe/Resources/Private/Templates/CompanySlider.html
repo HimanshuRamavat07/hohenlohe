@@ -1,0 +1,96 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<div class="member-thumb-slider">
+		<div class="member-thumb-slider-init owl-carousel">
+			<f:for each="{tableContent}" as="company" iteration="i">
+				<div class="member-thumb-slide">	
+			
+					<f:link.action pageUid="113" action="show" controller="Company" pluginName="company" extensionName="FafCompanies" class="member-teaser"  arguments="{company: company.data.uid}">
+						<f:if condition="{company.companylogo.0}">
+							<f:image class="member-image member-image-default" image="{company.companylogo.0}" height="82c"
+								width="138c" treatIdAsReference="1" />
+						</f:if>
+                        <f:if condition="{company.hoverlogo.0}">
+                        	<f:image class="member-image member-image-hover" image="{company.hoverlogo.0}" height="82c" width="138c" treatIdAsReference="1" />
+                        </f:if>
+                        <f:if condition="{company.data.linktext}">
+                            <div class="member-teaser-link">
+                                <p class="icon-link">
+									{company.data.linktext}
+								</p>
+                            </div>
+                        </f:if>
+                    </f:link.action>
+				</div>			
+			</f:for>
+		</div>
+		<div class="member-thumb-slider-counter"></div>
+	</div>
+
+	<f:if condition="{tableContent}">
+		<f:for each="{tableContent}" as="company" iteration="i">
+			<div class="modal member-modal member-modal-{data.refId}{i.cycle}" id="member-modal-{data.refId}{i.cycle}" tabindex="-1" role="dialog"
+				aria-labelledby="memberDetailModal" aria-hidden="true">
+				<button type="button" class="close btn-close" data-dismiss="modal" aria-hidden="true">
+					<span class="bars"></span>
+					<span class="bars"></span>
+					<span class="bars"></span>
+				</button>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<section class="member-slider">
+							<div class="container">
+								<div class="member-slider-block">
+									<div class="member-slider-init owl-carousel">
+										<f:if condition="{company.modelbannerimages} || {company.modelbannertitle}">
+											<f:for each="{company.modelbannerimages}" as="bannerimages" iteration="i">
+												<div class="member-slide">
+													<div class="member-slide-image">
+														<f:if condition="{company.modelbannerimages}">
+															<picture>
+																<source srcset="{f:uri.image(image: bannerimages, maxWidth: '1920', treatIdAsReference:1, height:'400c', cropVariant: 'default')}"
+																	media="(min-width: 1200px)">
+																<source srcset="{f:uri.image(image: bannerimages, maxWidth: '1200', treatIdAsReference:1, height:'375c', cropVariant: 'specialTablet')}"
+																	media="(min-width: 768px)">
+																<img class="image-embed-item" src="{f:uri.image(image: bannerimages, treatIdAsReference:1, height:'375c', cropVariant: 'specialMobile')}"
+																	alt="Image">
+															</picture>
+														</f:if>
+														<f:if condition="{company.data.modelbannertitle}">
+															<div class="member-slider-title">
+																<f:format.raw>
+																	<h2>
+																		{company.data.modelbannertitle}
+																	</h2>
+																</f:format.raw>
+															</div>
+														</f:if>
+													</div>
+												</div>
+											</f:for>
+										</f:if>
+									</div>
+									<div class="slider-counter"></div>
+								</div>
+								<f:if condition="{company.companylogo.0} ||{company.data.modelcontent} ">
+									<div class="member-slide-content content-section">
+										<f:if condition="{company.companylogo.0}">
+											<div class="member-slide-logo">
+												<img src="{f:uri.image(image: company.companylogo.0, treatIdAsReference:1)}"
+													alt="Member Logo">
+											</div>
+										</f:if>
+										<f:if condition="{company.data.modelcontent}">
+											<div class="member-slide-content--inner">
+												<f:format.html>{company.data.modelcontent}</f:format.html>
+											</div>
+										</f:if>
+									</div>
+								</f:if>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</f:for>
+	</f:if>
+</html>

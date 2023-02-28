@@ -1,0 +1,62 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  <f:if condition="{content.isPopup}">
+    <f:then>
+      <div class="lightbox-overlay hide-lightbox">
+        <section class="content-section cta-section cta-lightbox-section bg-yellow">
+          <f:render section="content" arguments="{_all}" />
+        </section>
+      </div>
+    </f:then>
+    <f:else>
+      <section class="content-section cta-section bg-yellow">
+        <f:render section="content" arguments="{_all}" />      
+      </section>
+    </f:else>
+  </f:if>
+  
+  <f:section name="content">
+    <div class="container">
+      <f:if condition="{content.isPopup}">
+        <div class="close-icon">
+          <svg viewBox="0 0 31.383 31.17">
+            <g fill="#fff">
+              <path
+                d="M28.883 31.116a2.492 2.492 0 01-1.759-.723L.741 4.277A2.5 2.5 0 01.723.742 2.5 2.5 0 014.258.724l26.384 26.115a2.5 2.5 0 01-1.759 4.277z"
+              />
+              <path
+                d="M2.5 31.171a2.492 2.492 0 01-1.777-.742 2.5 2.5 0 01.019-3.535L27.125.794a2.5 2.5 0 013.535.019 2.5 2.5 0 01-.019 3.535L4.258 30.447a2.492 2.492 0 01-1.758.724z"
+              />
+            </g>
+          </svg>
+        </div>
+      </f:if>
+      <div class="cta-teaser">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="cta-newsletter cta-teaser__content">
+              <div class="cta-teaser__text">
+                <f:if condition="{content.overline}">
+                  <span class="sub-tag">{content.overline}</span>
+                </f:if>
+                <f:if condition="{content.headline}">
+                    <h1>{content.headline}</h1>
+                </f:if>
+                <f:if condition="{content.text}">
+                      <f:format.raw>{content.text}</f:format.raw>
+                </f:if>
+              </div>
+            </div>
+          </div>
+          <f:if condition="{content.formHtml}">
+            <div class="col-md-6">
+              <f:format.raw>{content.formHtml}</f:format.raw>
+              <f:if condition="{content.isPopup}" >
+                <div class="close-link d-md-none">Schliessen</div>
+              </f:if>
+            </div>
+          </f:if>
+        </div>
+      </div>
+    </div>
+  </f:section>  
+</html>

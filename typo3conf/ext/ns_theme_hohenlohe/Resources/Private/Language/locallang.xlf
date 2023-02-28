@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-07-24T20:37:42Z">
+		<header/>
+		<body>
+			<trans-unit id="palette.access">
+                <source>Access</source>
+            </trans-unit>
+            <trans-unit id="title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="indexed_search.placeholder">
+                <source>Enter a search term …</source>
+            </trans-unit>
+            <trans-unit id="search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="back">
+                <source>BACK</source>
+            </trans-unit>
+            <trans-unit id="backinmenu">
+                <source>Back to the menu</source>
+            </trans-unit>
+            <trans-unit id="popularsearchitem">
+                <source>Frequently searched topics:</source>
+            </trans-unit>
+            <trans-unit id="user">
+                <source>Members</source>
+            </trans-unit>
+            <trans-unit id="Weiterlesen">
+                <source>Weiterlesen</source>
+            </trans-unit>
+            <trans-unit id="AlleBlogthemen">
+                <source>Alle Themen</source>
+            </trans-unit>
+            <trans-unit id="readmore">
+                <source>Mehr erfahren</source>
+            </trans-unit>
+            <trans-unit id="privacy">
+                <source> <![CDATA[  Isdch habe die <a href="/datenschutz" class="internal-links">Datenschutzbedingungen</a> gelesen und bin damit einverstanden.]]> </source>
+            </trans-unit>
+            <trans-unit id="formText">
+                <source>Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht.</source>
+            </trans-unit>
+            <trans-unit id="packagingMore">
+                <source>Mehr erfahren</source>
+            </trans-unit>
+            <trans-unit id="displayResults" resname="displayResults">
+                <target><![CDATA[ergab <strong>%3$s</strong> Treffer: ]]></target>
+            </trans-unit>
+            <trans-unit id="ANFRAGE">
+                <source>ANFRAGE</source>
+            </trans-unit>
+            <trans-unit id="latestNews">
+                <source>Latest News</source>
+            </trans-unit>
+            <trans-unit id="realtedNews">
+                <source>Related News</source>
+            </trans-unit>
+            <trans-unit id="events">
+                <source>Events</source>
+            </trans-unit>
+            <trans-unit id="listing">
+                <source>News Listing</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div style="padding:10px;background-color: {f:if(condition:'{flexformData.backgroundColor}==yellow',then:'#FDB936')};">
+        <h2><f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" /></h2>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <f:if condition="{data.header}">
+                            <h2>{data.header}</h2>
+                        </f:if>
+                    	<f:if condition="{flexformData.overline}">
+                    		<p><i>{flexformData.headline}</i></p>
+                    	</f:if>
+                        <f:if condition="{flexformData.headline}"><h1>{flexformData.headline}</h1></f:if>
+                        <f:format.html>{flexformData.text}</f:format.html>
+                    </div>
+                </div>
+                <f:if condition="{image}">
+	                <div class="row">
+	                	<f:for each="{image}" as="file">
+		                    <div class="col-md-3" style="margin:10px;">
+		                    	<f:image image="{file}" width="200c" height="150c" />
+		                    </div>
+		                </f:for>
+	                </div>
+	            </f:if>
+            </div>
+        </header>
+    </div>
+
+</html>

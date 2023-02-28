@@ -1,0 +1,56 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Fields</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>                                                       
+                    <backgroundColor>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.backgroundColor</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.white</numIndex>
+                                        <numIndex index="1">white</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.yellow</numIndex>
+                                        <numIndex index="1">yellow</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </backgroundColor>
+                    <spacing>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.spacing</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.large</numIndex>
+                                        <numIndex index="1">large</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.small</numIndex>
+                                        <numIndex index="1">small</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.medium</numIndex>
+                                        <numIndex index="1">medium</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </spacing>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

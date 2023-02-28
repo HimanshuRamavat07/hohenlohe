@@ -1,0 +1,8 @@
+# Include the BackendLayouts
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/PageTSconfig/BackendLayouts" extensions="typoscript">
+
+// Include the PageTSconfig
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/PageTSconfig/TceForm" extensions="tsconfig">
+
+// Include the GridElements
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/PageTSconfig/GridElements" extensions="tsconfig">

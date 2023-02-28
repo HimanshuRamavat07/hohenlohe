@@ -1,0 +1,7 @@
+plugin.tx_blog {
+    view {
+        templateRootPaths.10 = EXT:ns_theme_hohenlohe/Resources/Private/Extension/Blog/Templates/
+        partialRootPaths.10 = EXT:ns_theme_hohenlohe/Resources/Private/Extension/Blog/Partials/
+        layoutRootPaths.10 = EXT:ns_theme_hohenlohe/Resources/Private/Extension/Blog/Layouts/
+    }    
+}

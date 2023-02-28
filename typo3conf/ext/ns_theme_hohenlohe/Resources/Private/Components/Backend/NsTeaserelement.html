@@ -1,0 +1,76 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <table class="table">
+        <tr>
+            <th colspan="3">
+                <h2>
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+                </h2>
+            </th>
+        </tr>
+        <tr>
+            <f:if condition="{flexformData.headline1} || {flexformData.text1} || {image}">
+                <td>
+                    <div class="teaser-elemente-tile">
+                        <f:if condition="{flexformData.headline1}">
+                            <div class="teaser-elemente-thumb-title">
+                                <h2>
+                                    <f:format.raw>{flexformData.headline1}</f:format.raw>
+                                </h2>
+                            </div>
+                        </f:if>                        
+                    </div>
+                    <f:if condition="{flexformData.text1}">
+                        <div class="teaser-elemente-content">
+                            <f:format.raw><f:format.crop maxCharacters="200" append="...">{flexformData.text1}</f:format.crop></f:format.raw>
+                            <f:if condition="{content.btnText1} && {content.btnLink1}">
+                                <a href="javascript:;" class="icon-link">{content.btnText1}</a>
+                            </f:if>
+                        </div>
+                    </f:if>
+                </td>
+            </f:if>
+            <f:if condition="{flexformData.headline2} || {flexformData.text2} || {file2}">
+                <td>
+                    <div class="teaser-elemente-tile">
+                        <f:if condition="{flexformData.headline2}">
+                            <div class="teaser-elemente-thumb-title">
+                                <h2>
+                                    <f:format.raw>{flexformData.headline2}</f:format.raw>
+                                </h2>
+                            </div>
+                        </f:if>
+                    </div>
+                    <f:if condition="{flexformData.text2}">
+                        <div class="teaser-elemente-content">
+                            <f:format.raw><f:format.crop maxCharacters="200" append="...">{flexformData.text2}</f:format.crop></f:format.raw>
+                            <f:if condition="{content.btnText2} && {content.btnLink2}">
+                                <a href="javascript:;" class="icon-link">{content.btnText2}</a>
+                            </f:if>
+                        </div>
+                    </f:if>
+                </td>
+            </f:if>
+            <f:if condition="{flexformData.headline3} || {flexformData.text3} || {file3}">
+                <td>
+                    <div class="teaser-elemente-tile">
+                        <f:if condition="{flexformData.headline3}">
+                            <div class="teaser-elemente-thumb-title">
+                                <h2>
+                                    <f:format.raw>{flexformData.headline3}</f:format.raw>
+                                </h2>
+                            </div>
+                        </f:if>
+                    </div>
+                    <f:if condition="{flexformData.text3}">
+                        <div class="teaser-elemente-content">
+                            <f:format.raw><f:format.crop maxCharacters="200" append="...">{flexformData.text3}</f:format.crop></f:format.raw>
+                            <f:if condition="{content.btnText3} && {content.btnLink3}">
+                                <a href="javascript:;" class="icon-link">{content.btnText3}</a>
+                            </f:if>
+                        </div>
+                    </f:if>
+                </td>
+            </f:if>
+        </tr>
+    </table>
+</html>

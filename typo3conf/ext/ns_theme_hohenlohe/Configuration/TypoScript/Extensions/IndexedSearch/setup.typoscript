@@ -1,0 +1,18 @@
+plugin.tx_indexedsearch.settings.exactCount = 1
+plugin.tx_indexedsearch.settings.mediaList = 
+plugin.tx_indexedsearch {
+    view {
+            templateRootPaths {
+                0 = EXT:indexed_search/Resources/Private/Templates/
+                10 = {$plugin.tx_indexedsearch.view.templateRootPath}
+            }
+            partialRootPaths {
+                0 = EXT:indexed_search/Resources/Private/Partials/
+                10 = {$plugin.tx_indexedsearch.view.partialRootPath}
+            }
+            layoutRootPaths {
+                0 = EXT:indexed_search/Resources/Private/Layouts/
+                10 = {$plugin.tx_indexedsearch.view.layoutRootPath}
+            }
+        }
+}

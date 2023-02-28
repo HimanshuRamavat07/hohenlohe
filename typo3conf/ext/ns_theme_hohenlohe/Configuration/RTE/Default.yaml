@@ -1,0 +1,73 @@
+# Load default processing options
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    contentsCss: "EXT:ns_theme_weikersheim/Resources/Public/css/RTE.css"
+    stylesSet:
+      - { name: "Lead", element: "p", attributes: {'class': 'lead'} }
+      - { name: "Span", element: "span", attributes: {'class': 'spanc'} }
+      - { name: "sub-tag", element: "span", attributes: {'class': 'sub-tag'} }
+      - { name: "Title text h4", element: "h4", attributes: {'class': 'title-text'} }
+    format_tags: "p;h1;h2;h3;h4;h5;h6;pre"
+    toolbarGroups:
+      - { name: clipboard, groups: [clipboard, undo] }
+      - { name: editing, groups: [find, selection, spellchecker] }
+      - { name: links }
+      - { name: insert }
+      - { name: tools }
+      - { name: table }
+      - { name: tabletools }
+      - { name: document, groups: [ mode, document, doctools ] }
+      - { name: others }
+      - "/"
+      - { name: basicstyles, groups: [ basicstyles, align, cleanup ] }
+      - { name: paragraph, groups: [ list, indent, blocks, align, bidi ] }
+      - { name: specialcharacters, groups: [ insertcharacters ] }
+      - "/"
+      - { name: styles }
+    justifyClasses:
+      - text-left
+      - text-center
+      - text-right
+      - text-justify
+    extraPlugins:
+      - justify
+      - font
+      - find
+      - bidi
+      - selectall
+      - autolink
+    removePlugins:
+      - null
+    removeButtons:
+
+# Allow s and u tag
+processing:
+  allowTags:
+    - s
+    - u
+
+# Anchor class
+classesAnchor:
+  folder:
+    class: 'link-folder'
+    type: 'folder'
+  file:
+    class: 'link-file'
+    type: 'file'
+  mail:
+    class: 'link-mail'
+    type: 'mail'
+
+# Custom class
+buttons:
+  link:
+    properties:
+      class:
+        allowedClasses: 'internal-link, external-link, btn, icon-link'

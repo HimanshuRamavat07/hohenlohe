@@ -1,0 +1,36 @@
+
+plugin.tx_fafcompanies_company {
+    view {
+        templateRootPaths.0 = EXT:faf_companies/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_fafcompanies_company.view.templateRootPath}
+        partialRootPaths.0 = EXT:faf_companies/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_fafcompanies_company.view.partialRootPath}
+        layoutRootPaths.0 = EXT:faf_companies/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_fafcompanies_company.view.layoutRootPath}
+    }    
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+lib {
+    replace_space = TEXT
+    replace_space {
+        current = 1
+        stdWrap {
+            replacement {
+                20 {
+                    search = .
+                    replace = ,
+                }
+            }
+            trim = 1
+        }
+    }
+}

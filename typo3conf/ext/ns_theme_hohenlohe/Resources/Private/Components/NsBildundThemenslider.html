@@ -1,0 +1,56 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <!-- Start Theme-Slider -->
+    <section class="theme-slider bg-{content.backgroundColor}" id="c{data.uid}">
+        <div class="container">
+        	<f:if condition="{data.header}">
+	            <div class="row">
+	                <div class="col-md-10">
+	                    <div class="theme-slider">
+	                        <h2>{data.header}</h2>
+	                    </div>
+	                </div>
+	            </div>
+	        </f:if>
+	        <f:if condition="{content.slider}">
+	            <div class="row no-gutters">
+	                <div class="theme-slider-init owl-carousel">
+	                	<f:for each="{content.slider}" as="item">
+		                    <div class="theme-slide">
+		                        <div class="theme-slider-thumb">
+		                            <div class="theme-slider-tile">
+		                            	<f:if condition="{item.headline}">
+			                                <div class="theme-slider-thumb-title">
+			                                    <h2>{item.headline}</h2>
+			                                </div>
+			                            </f:if>
+			                            <f:if condition="{item.image}">
+			                                <div class="theme-slider-image">
+			                                    <picture>
+			                                        <source srcset="{f:uri.image(src:'{item.image}', maxWidth:'500' , maxHeight:'500', cropVariant: 'default')}" media="(min-width: 1200px)">
+			                                        <source srcset="{f:uri.image(src:'{item.image}', maxWidth:'500' , maxHeight:'500', cropVariant: 'specialTablet')}" media="(min-width: 768px)">
+			                                        <img src="{f:uri.image(src:'{item.image}', maxWidth:'500' , maxHeight:'500', cropVariant: 'specialMobile')}" alt="Teaser Element Thumb" >
+			                                    </picture>
+			                                </div>
+			                            </f:if>
+		                            </div>
+		                            <f:if condition="{item.text} || {item.link}">
+			                            <div class="theme-slider-content">
+			                                <f:format.html>{item.text}</f:format.html>
+			                                <f:if condition="{item.link} && {item.linkText}">
+				                                <f:link.typolink parameter="{item.link}" target="_blank" class="external-link">{item.linkText}</f:link.typolink>
+				                            </f:if>
+			                            </div>
+			                        </f:if>
+		                        </div>
+		                    </div>
+		                </f:for>
+	                </div>
+	            </div>
+	            <div class="theme-slider-counter"></div>
+	        </f:if>
+        </div>
+    </section>
+    <!-- End Theme-Slider -->
+
+</html>

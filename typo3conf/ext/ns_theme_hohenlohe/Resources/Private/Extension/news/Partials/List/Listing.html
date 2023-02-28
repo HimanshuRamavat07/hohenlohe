@@ -1,0 +1,69 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<!--
+	=====================
+		Partials/List/Item.html
+-->
+<div class="col-md-4 col-sm-6">
+    <div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <n:excludeDisplayedNews newsItem="{newsItem}"/>
+        <div class="blog-teaser-thumb">
+            <div class="blog-teaser-image">
+                <f:if condition="{newsItem.mediaPreviews}">
+                    <!-- media preview element -->
+                    <f:then>
+                        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                            <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                                <f:if condition="{mediaElement.originalResource.type} == 2">
+                                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="575"/>
+                                </f:if>
+                                <f:if condition="{mediaElement.originalResource.type} == 4">
+                                    <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+                                </f:if>
+                                <f:if condition="{mediaElement.originalResource.type} == 5">
+                                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="575"/>
+                                </f:if>
+                            </f:alias>
+                        </n:link>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{settings.displayDummyIfNoMedia}">
+                            <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                                <f:image src="{settings.list.media.dummyImage}" title="dummyImage" alt="dummyImage" width="575c"/>
+                            </n:link>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </div>
+            <div class="blog-teaser-content">
+                <span class="news-list-date sub-tag">
+                    <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'d.m.Y')}">
+                        <f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
+                    </time>
+                </span>
+                <h5 class="postlist__posttitle">
+                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                        <span itemprop="headline">{newsItem.title}</span>
+                    </n:link>
+                </h5>
+                <p class="postlist__postdescription">
+                    <n:removeMediaTags>
+                        <f:if condition="{newsItem.teaser}">
+                            <f:then>
+                                <div itemprop="description">{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</div>
+                            </f:then>
+                            <f:else>
+                                <div itemprop="description">{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</div>
+                            </f:else>
+                        </f:if>
+                    </n:removeMediaTags>
+                </p>
+            </div>
+            <n:link newsItem="{newsItem}" settings="{settings}" class="icon-link" title="{newsItem.title}">
+                <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:more-link"/>
+            </n:link>
+        </div>
+    </div>
+</div>
+</html>

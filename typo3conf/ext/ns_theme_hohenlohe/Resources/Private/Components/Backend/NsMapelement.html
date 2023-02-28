@@ -1,0 +1,70 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    
+<style>
+    .map-section {
+    position: relative;
+    background-color: #ECECEC;
+    padding: 50px 0;
+}
+.map-marker {
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 99;
+    margin: 0;
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform .5s,opacity .5s;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+}
+.map-marker::before {
+    content: '';
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 21px;
+    height: 36px;
+    background: url(/typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/marker.svg) center center no-repeat transparent;
+    background-size: contain;
+    margin: 0 auto;
+}
+</style>
+<table class="table">
+        <tr>
+            <th>
+                <h2>
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+                </h2>
+            </th>
+        </tr>
+        <tr>
+            <td>                
+                <section class="map-section">
+                    <div class="container">
+                        <div class="row">                            
+                            <div class="col-md-12">
+                                <f:if condition="{image}">
+                                    <f:for each="{image}" as="file" iteration="i">
+                                        <f:image image="{file}" treatIdAsReference="1" />
+                                    </f:for>                                    
+                                </f:if>
+                                <f:for each="{flexformData.locationsPin}" as="pin" iteration="i">
+                                    <a href="javascript:;" role="button" class="map-marker popovers" data-toggle="popover" title=""
+                                        data-content="{pin.container.tooltipContent}"
+                                        style="left: {pin.container.leftPosition}%;bottom: {pin.container.topPosition}%;">{pin.container.pinName}</a>
+                                </f:for>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </td>
+        </tr>
+    </table>
+</html>

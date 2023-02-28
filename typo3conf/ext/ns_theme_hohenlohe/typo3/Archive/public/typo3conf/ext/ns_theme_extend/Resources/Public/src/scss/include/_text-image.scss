@@ -1,0 +1,48 @@
+/*******************************************************************************
+* Text Image Teaser
+*******************************************************************************/
+.text-image-teaser {
+  margin: 0 auto 30px;
+  max-width: 280px;
+  min-height: calc(100% - 30px);
+  padding: 0 25px;
+
+  @include media-breakpoint-up(sm) {
+    padding: 0 35px;
+  }
+}
+
+.text-image-teaser__image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  max-height: 130px;
+  min-height: 130px;
+}
+
+.text-image-teaser__content {
+  h3 {
+    color: $primary-light-form-color;
+  }
+}
+
+.four-col-grid {
+  .text-image-teaser__image {
+    margin-bottom: 30px;
+    max-height: 182px;
+    min-height: 182px;
+
+    img {
+      width: auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 40px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 50px;
+    }
+  }
+}

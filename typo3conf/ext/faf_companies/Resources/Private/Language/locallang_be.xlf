@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:car/Resources/Private/Language/locallang_be.xlf" date="2014-06-02T11:47:18Z" product-name="car">
+		<header/>
+		<body>
+			<trans-unit id="pi1_title" xml:space="preserve">
+				<source>Cars showing</source>
+			</trans-unit>
+	
+			<trans-unit id="flexforms_tab.settings" xml:space="preserve">
+				<source>Settings</source>
+			</trans-unit>
+	
+			<trans-unit id="flexforms_general.mode" xml:space="preserve">
+				<source>What to display</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.mode.cars_list" xml:space="preserve">
+				<source>List view</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_general.mode.cars_detail" xml:space="preserve">
+				<source>Detail view</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_general.mode.detailPid" xml:space="preserve">
+				<source>PageId for single car detail display</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_general.mode.limit" xml:space="preserve">
+				<source>Max record per page displayed</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_additional.listPid" xml:space="preserve">
+				<source>PageId for list display</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_additional.hidePagination" xml:space="preserve">
+				<source>Hide the pagination</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_additional.FilterOption" xml:space="preserve">
+				<source>Do you want to apply filteration on data</source>
+			</trans-unit>
+
+			<trans-unit id="elementtitle" resname="elementtitle">
+				<source>New Element</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

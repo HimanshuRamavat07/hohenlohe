@@ -1,0 +1,160 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<style>
+    article,
+    aside,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section {
+        display: block;
+    }
+
+    .testimonial-video-section {
+        background-color: #FDB936;
+    }
+
+    @media (min-width: 1920px) {
+        .testimonial-video {
+            padding: 80px 0;
+        }
+    }
+    @media (min-width: 1280px) {
+        .testimonial-video {
+            padding: 60px 0;
+        }
+    }
+.testimonial-video {
+    padding: 40px 0;
+    margin: 0 auto;
+    max-width: 960px;
+}
+.testimonial-video .sub-tag {
+    color: #fff;
+    margin-bottom: 8px;
+}
+.sub-tag {
+    font-weight: 700;
+    letter-spacing: 4px;    
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+}
+@media (min-width: 768px) {
+    .testimonial-cover-image {
+        margin: 20px 0;
+    }
+}
+.testimonial-cover-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 20px -30px;
+    color: inherit;
+    position: relative;
+}
+.testimonial-cover-image:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+    opacity: 1;    
+    transition: all 0.2s ease 0s;
+}
+@media (min-width: 992px) {
+    .play-button {
+        width: 109px;
+        height: 109px;
+    }
+}
+.play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(253, 185, 54, 0.83);
+    width: 83px;
+    height: 83px;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 1;    
+    transition: all 0.2s ease 0s;
+    z-index: 2;
+}
+.video-url {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.5%;
+}
+@media (min-width: 992px) {
+    .testimonial-video-text {
+        padding: 26px 0;
+    }
+}
+.testimonial-video-profile {
+    padding: 15px 15px 34px 98px;
+    left: 50px;
+    max-width: 550px;
+    color: white;
+}
+.testimonial-video-profile p.profile-name {
+    font-weight: 700;
+}
+.testimonial-video-profile p {
+    margin-bottom: 0;
+}
+</style>
+    <table class="table">
+        <tr>
+            <th>
+                <h2>
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+                </h2>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div class="container">
+                    <div class="row">
+                        <f:for each="{image}" as="file" iteration="i">
+                            <f:if condition="{flexformData.overline}">
+                                <span class="sub-tag">{flexformData.overline}</span>
+                            </f:if>
+                            <div class="testimonial-cover-image bg-image" style="background-image: url({f:uri.image(image: '{file}',height:'300c', width:'500c')})">
+                                <a href="javascript:;" class="play-button">
+                                    <img src="/typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/play-button.svg" alt="Icon">
+                                </a>
+                                <div class="video-url" data-videourl="{content.videoUrl}">
+                                </div>
+                                <div class="testimonial-video-profile">
+                                    <f:if condition="{flexformData.name}">
+                                        <p class="profile-name">{flexformData.name}</p>
+                                    </f:if>
+                                    <f:if condition="{flexformData.beschreibung}">
+                                        <p class="profile-description">{flexformData.beschreibung}</p>
+                                    </f:if>
+                                </div>
+                            </div>
+                            <f:if condition="{flexformData.subline}">
+                                <div class="testimonial-video-text">
+                                    <p>{flexformData.subline}</p>
+                                </div>
+                            </f:if>
+                        </f:for>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</html>

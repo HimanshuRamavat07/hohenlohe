@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<!--
+	=====================
+		Partials/List/Item.html
+-->
+<div class="col-sm-12">
+    <div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <n:excludeDisplayedNews newsItem="{newsItem}"/>
+        <div class="event-teaser-thumb">
+            <h4 class="event-list-date">
+                <time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'d.m.Y')}">
+                    <f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
+                </time>
+            </h4>
+            <h5 class="event__posttitle">
+                <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                    <span itemprop="headline">
+                        <f:format.crop maxCharacters="100" append="(...)">
+                            {newsItem.title}
+                        </f:format.crop>
+                    </span>
+                </n:link>
+            </h5>
+            <div class="event__button">
+                <n:link newsItem="{newsItem}" settings="{settings}" class="icon-link" title="{newsItem.title}">
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:more-link"/>
+                </n:link>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

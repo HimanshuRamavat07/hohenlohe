@@ -1,0 +1,41 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:vh="http://typo3.org/ns/NITSAN/NsThemeMenzerna/ViewHelpers">
+    <section class="content-theme-section{f:if(condition: '{image}', then: ' bg-img lozad')} frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}" <f:if condition="{image}"><f:for each="{image}" as="img" iteration="i">data-background-image="{f:uri.image(image: '{img}')}"</f:for></f:if><f:if condition="{content.bgColor}">style="background-color:{content.bgColor}"</f:if>>
+        <div class="container">
+            <div class="row">
+                <div class="{f:if(condition: '{content.variance}', then: 'col-sm-12', else: 'col-lg-10 offset-lg-1')}">
+                    <div class="row text-center justify-content-center {f:if(condition: '{content.variance}', then: 'four-col-grid')}">
+                        <f:if condition="{content.teaser}">
+                            <f:for each="{content.teaser}" as="teaser" iteration="i">
+                                <div class="{f:if(condition: '{content.variance}', then: 'col-sm-6 col-lg-3', else: 'col-sm-6 col-md-4')}">
+                                    <div class="text-image-teaser">
+                                        <div class="text-image-teaser__image">
+                                            <f:if condition="{teaser.image}">
+                                                <f:if condition="{content.variance}">
+                                                    <f:then>
+                                                        <img class="lozad" src="data:," data-src="{f:uri.image(src: '{teaser.image}', maxHeight:'182')}" alt="{img.alternatives}" title="{img.title}">
+                                                    </f:then>
+                                                    <f:else>
+                                                        <img class="lozad" src="data:," data-src="{f:uri.image(src: '{teaser.image}', maxHeight:'130')}" alt="{img.alternatives}" title="{img.title}">
+                                                    </f:else>
+                                                </f:if>
+                                            </f:if>
+                                        </div>
+                                        <div class="text-image-teaser__content">
+                                            <f:if condition="{teaser.headline}">
+                                                <h3>{teaser.headline}</h3>
+                                            </f:if>
+                                            <f:if condition="{teaser.text}">
+                                                <p>{f:format.nl2br(value: '{teaser.text}')}</p>
+                                            </f:if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:for>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</html>

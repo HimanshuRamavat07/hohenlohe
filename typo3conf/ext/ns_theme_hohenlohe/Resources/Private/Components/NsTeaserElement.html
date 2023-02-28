@@ -1,0 +1,100 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+        
+    {f:variable(name: 'mycount', value: 1)}
+    <f:if condition="{content.headline2} || {content.text2} || {file2}">
+        {f:variable(name: 'mycount', value: '{mycount + 1}')}
+        {f:variable(name: 'teasetBlok', value: '2')}
+        {f:variable(name: 'file', value: file2)}
+    </f:if>
+    <f:if condition="{content.headline3} || {content.text3} || {file3}">
+        {f:variable(name: 'mycount', value: '{mycount + 1}')}
+        {f:variable(name: 'teasetBlok', value: '3')}
+        {f:variable(name: 'file', value: file3)}
+    </f:if>
+
+    <section id="c{data.uid}" class="teaser-elemente {f:if(condition: '{mycount}==3', then: 'teaser-elemente-three-column')} {f:if(condition: '{content.withYelloBg}', then: 'bg-yellow')}">
+        <div class="container">
+            <f:if condition="{content.overline} || {content.headline} ">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="teaser-elemente-title">
+                            <f:if condition="{content.overline}">
+                                <span class="sub-tag">{content.overline}</span>
+                            </f:if>
+                            <f:if condition="{content.headline}">
+                                <h2>{content.headline}</h2>
+                            </f:if>
+                        </div>
+                    </div>
+                </div>
+            </f:if>
+            <div class="row no-gutters">
+                <f:switch expression="{mycount}">
+                    <f:case value="1">
+                        <f:render section="fullWidth" arguments="{content: content, image:image, teasetBlok:1, height:'440c', width:'1160c' }" />
+                    </f:case>
+                    <f:case value="2">
+                        <f:render section="twoCols" arguments="{content: content, image:image, teasetBlok:1, height:'440c', width:'555c'}" />
+                        <f:render section="twoCols" arguments="{content: content, image:file, teasetBlok:teasetBlok, height:'440c', width:'555c'}" />
+                    </f:case>
+                    <f:case value="3">
+                        <f:render section="threeCols" arguments="{content: content, image:image, teasetBlok:1, height:'280c', width:'353c'}" />
+                        <f:render section="threeCols" arguments="{content: content, image:file2, teasetBlok:2, height:'280c', width:'353c'}" />
+                        <f:render section="threeCols" arguments="{content: content, image:file3, teasetBlok:3, height:'280c', width:'353c'}" />                        
+                    </f:case>
+                </f:switch>
+            </div>
+        </div>
+    </section>
+    
+    <f:section name="teaserBlock">
+        <div class="teaser-elemente-thumb">
+            <div class="teaser-elemente-tile">
+                <f:if condition="{content.headline{teasetBlok}}">
+                    <div class="teaser-elemente-thumb-title">
+                        <f:format.raw>
+                            <h2>
+                                {content.headline{teasetBlok}}
+                            </h2>
+                        </f:format.raw>
+                    </div>
+                </f:if>
+                <f:if condition="{image}">
+                    <div class="teaser-elemente-image">
+                        <f:render section="renderImage" arguments="{image:image, height:height, width:width}" />
+                    </div>
+                </f:if>      
+            </div>
+            <f:if condition="{content.text{teasetBlok}}">
+                <div class="teaser-elemente-content">
+                    <f:format.html><f:format.crop maxCharacters="300" append="...">{content.text{teasetBlok}}</f:format.crop></f:format.html>
+                    <f:if condition="{content.btnText{teasetBlok}} && {content.btnLink{teasetBlok}}">
+                        <f:link.typolink additionalAttributes="{id:'{content.btnId{teasetBlok}}'}" parameter="{content.btnLink{teasetBlok}}" class="icon-link">{content.btnText{teasetBlok}}</f:link.typolink>
+                    </f:if>
+                </div>
+            </f:if>
+        </div>
+    </f:section>
+    <f:section name="renderImage">        
+        <picture>
+            <source srcset="{f:uri.image(image: '{image.0}', maxWidth: '1920',height:height, width:width, cropVariant: 'default')}" media="(min-width: 1200px)">
+            <source srcset="{f:uri.image(image: '{image.0}', maxWidth: '1200', cropVariant: 'specialTablet')}" media="(min-width: 768px)">
+            <img src="{f:uri.image(image: '{image.0}', width:'375c', height:'375c', cropVariant: 'specialMobile')}" alt="Teaser Element Thumb">
+        </picture>
+    </f:section>
+    <f:section name="fullWidth">
+        <div class="col-md-12">
+            <f:render section="teaserBlock" arguments="{_all}" />
+        </div>
+    </f:section>
+    <f:section name="twoCols">
+        <div class="col-md-6">
+            <f:render section="teaserBlock" arguments="{_all}" />
+        </div>
+    </f:section>
+    <f:section name="threeCols">
+        <div class="col-lg-4 col-md-6">
+            <f:render section="teaserBlock" arguments="{_all}" />
+        </div>
+    </f:section>
+</html>

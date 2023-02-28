@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+	<!-- CE: Icon-Sammlung Start -->
+    <section class="icon-sammlung-section bg-{content.backgroundColor}" id="c{data.uid}">
+        <div class="container">
+        	<f:if condition="{data.header}">
+	            <div class="row">
+	                <div class="col-md-10">
+	                    <h2>{data.header}</h2>
+	                    <div class="spacing-element spacing-element--small"></div>
+	                </div>
+	            </div>
+	        </f:if>
+	        <f:if condition="{content.teaser}">
+	            <div class="row">
+	            	<f:for each="{content.teaser}" as="item">
+		                <div class="col-md-4">
+		                    <div class="icon-sammlung">
+		                    	<f:if condition="{item.image}">
+			                        <div class="icon-sammlung-img">
+			                            <img src="{f:uri.image(src:'{item.image}',maxWidth:'200',maxHeight:'200')}" alt="Icon">
+			                        </div>
+			                    </f:if>
+		                        <div class="icon-sammlung-content">
+		                        	<f:if condition="{item.headline}"><h5>{item.headline}</h5></f:if>
+		                            <f:if condition="{item.text}">
+		                            	<f:format.html>{item.text}</f:format.html>
+			                        </f:if>
+		                        </div>
+		                    </div>
+		                </div>
+		            </f:for>
+	            </div>
+	        </f:if>
+        </div>
+    </section>
+    <!-- CE: Icon-Sammlung End -->
+</html>

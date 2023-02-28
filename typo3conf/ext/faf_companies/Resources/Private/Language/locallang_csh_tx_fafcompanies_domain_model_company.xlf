@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:faf_companies/Resources/Private/Language/locallang_csh" date="2020-07-30T04:03:20Z" product-name="faf_companies">
+		<header/>
+		<body>
+			<trans-unit id="companylogo.description" resname="companylogo.description">
+				<source>companylogo</source>
+			</trans-unit>
+			<trans-unit id="hoverlogo.description" resname="hoverlogo.description">
+				<source>hoverlogo</source>
+			</trans-unit>
+			<trans-unit id="name.description" resname="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="subline.description" resname="subline.description">
+				<source>subline</source>
+			</trans-unit>
+			<trans-unit id="linktext.description" resname="linktext.description">
+				<source>linktext</source>
+			</trans-unit>
+			<trans-unit id="modelbannerimages.description" resname="modelbannerimages.description">
+				<source>modelbannerimages</source>
+			</trans-unit>
+			<trans-unit id="modelbannertitle.description" resname="modelbannertitle.description">
+				<source>modelbannertitle</source>
+			</trans-unit>
+			<trans-unit id="modelcontent.description" resname="modelcontent.description">
+				<source>modelcontent</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

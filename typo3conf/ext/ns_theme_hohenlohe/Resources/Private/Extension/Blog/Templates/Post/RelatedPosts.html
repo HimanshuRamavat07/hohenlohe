@@ -1,0 +1,47 @@
+<f:layout name="Post" />
+<f:section name="Content">
+
+    <section class="blog-teaser blog-teaser-related">
+        <div class="container">
+            <f:if condition="{data.header} || {data.subheader}">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-teaser-title-block">
+                            <f:if condition="{data.subheader}">
+                                <span class="sub-tag">{data.subheader}</span>
+                            </f:if>
+                            <f:if condition="{data.header}">
+                                <h2>{data.header}</h2>
+                            </f:if>
+                        </div>
+                    </div>
+                </div>
+            </f:if>
+            <div class="row">
+                <f:switch expression="{data.layout}">
+                    <f:case value="1">
+                        <f:render section="ListPostsTeaser" arguments="{_all}" />            
+                    </f:case>
+                    <f:case value="2">
+                        <f:render section="PaginatePostsTeaser" arguments="{posts: posts, pagination: settings.lists.pagination}" />
+                    </f:case>
+                    <f:defaultCase>
+                        <f:render partial="SimpleList" arguments="{_all}" />
+                    </f:defaultCase>
+                </f:switch>
+            </div>
+        </div>
+    </section>
+    <f:section name="ListPostsTeaser">
+        <f:for each="{posts}" as="post">
+            <blogvh:cache post="{post}" />
+            <f:render partial="List/Teaser" arguments="{_all}" />
+        </f:for>
+    </f:section>
+    <f:section name="PaginatePostsTeaser">
+        <f:for each="{posts}" as="paginatedPosts">
+            <f:render section="ListPostsTeaser" arguments="{posts: paginatedPosts}" />
+        </f:for>
+        
+    </f:section>    
+</f:section>

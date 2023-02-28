@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-07-24T20:37:42Z">
+		<header/>
+		<body>
+			<trans-unit id="palette.access">
+                <target>Access</target>
+            </trans-unit>
+            <trans-unit id="title">
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="indexed_search.placeholder">
+                <target>Suchbegriff eingeben …</target>
+            </trans-unit>
+            <trans-unit id="search">
+                <target>Suche</target>
+            </trans-unit>
+            <trans-unit id="back">
+                <target>ZURÜCK</target>
+            </trans-unit>
+            <trans-unit id="backinmenu">
+                <target>zurück ZUM MENÜ</target>
+            </trans-unit>
+            <trans-unit id="popularsearchitem">
+                <target>Häufig gesuchte Themen:</target>
+            </trans-unit>
+            <trans-unit id="user">
+                <target>Mitglieder</target>
+            </trans-unit>
+            <trans-unit id="Weiterlesen">
+                <target>Weiterlesen</target>
+            </trans-unit>
+            <trans-unit id="AlleBlogthemen">
+                <target>Alle Themen</target>
+            </trans-unit>
+            <trans-unit id="readmore">
+                <target>Link zur Seite</target>
+            </trans-unit>
+            <trans-unit id="privacy">
+                <target> <![CDATA[  Ich habe die <a href="/datenschutz" class="internal-links">Datenschutzbedingungen</a> gelesen und bin damit einverstanden.]]> </target>
+            </trans-unit>
+            <trans-unit id="formText">
+                <target>Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht.</target>
+            </trans-unit>
+            <trans-unit id="packagingMore">
+                <target>Mehr erfahren</target>
+            </trans-unit>
+            <trans-unit id="result.noResult">
+                <target>keine Ergebnisse gefunden</target>
+            </trans-unit>
+            <trans-unit id="searchFor" resname="searchFor">
+                <target>IHRE SUCHE NACH</target>
+            </trans-unit>
+            <trans-unit id="searchFor.or" resname="searchFor.or">
+                <target>or</target>
+            </trans-unit>
+            <trans-unit id="searchFor.and" resname="searchFor.and">
+                <target>and</target>
+            </trans-unit>
+            <trans-unit id="searchFor.andnot" resname="searchFor.andnot">
+                <target>but not</target>
+            </trans-unit>
+            <trans-unit id="displayResults" resname="displayResults">
+                <target><![CDATA[ergab <strong>%3$s</strong> Treffer: ]]></target>
+            </trans-unit>
+            <trans-unit id="ANFRAGE">
+                <target>ANFRAGE</target>
+            </trans-unit>
+            <trans-unit id="list_nonewsfound">
+                <target>In Hohenlohe ist immer was los!</target>
+            </trans-unit>
+            <trans-unit id="list_nonewsfound2">
+                <target>Sollten hier aktuell keine Termine stehen, wird sich das sicher ganz schnell ändern. Bald wieder vorbeischauen lohnt sich also.</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,90 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<style>
+    article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block;
+    }
+    .video {
+        margin: 0 auto;
+    }
+    @media (min-width: 768px){
+        .cover-image {
+            margin: 0;
+        }
+    }
+.cover-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0 -30px;
+    color: inherit;
+    position: relative;
+}
+.cover-image:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+    opacity: 1;
+}
+@media (min-width: 992px){
+    .play-button {
+        width: 109px;
+        height: 109px;
+    }
+
+}
+.play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(253, 185, 54, 0.83);
+    width: 83px;
+    height: 83px;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 1;    
+    transition: all 0.2s ease 0s;
+    z-index: 2;
+}
+.video-url {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.5%;
+}
+</style>
+    <table class="table">
+        <tr>
+            <th>
+                <h2>
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+                </h2>
+            </th>    
+        </tr>
+        <tr>
+            <td>
+                <div class="container">
+                    <div class="row">
+                        <f:for each="{image}" as="file" iteration="i">                                
+                            <div class="cover-image bg-image" style="background-image: url({f:uri.image(image: '{file}',height:'300c', width:'500c')})">
+                                <a href="javascript:;" class="play-button">
+                                    <img src="/typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/play-button.svg" alt="Icon">
+                                </a>                        
+                                <div class="video-url" data-videourl="{content.videoUrl}">        
+                                </div>
+                            </div>
+                        </f:for>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</html>

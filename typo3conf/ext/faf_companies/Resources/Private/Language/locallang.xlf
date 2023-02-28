@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:faf_companies/Resources/Private/Language/locallang" date="2020-07-30T04:03:20Z" product-name="faf_companies">
+		<header/>
+		<body>
+			<trans-unit id="tx_fafcompanies_domain_model_company" resname="tx_fafcompanies_domain_model_company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.companylogo" resname="tx_fafcompanies_domain_model_company.companylogo">
+				<source>Companylogo</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.hoverlogo" resname="tx_fafcompanies_domain_model_company.hoverlogo">
+				<source>Hoverlogo</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.name" resname="tx_fafcompanies_domain_model_company.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.subline" resname="tx_fafcompanies_domain_model_company.subline">
+				<source>Subline</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.linktext" resname="tx_fafcompanies_domain_model_company.linktext">
+				<source>Linktext</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.modelbannerimages" resname="tx_fafcompanies_domain_model_company.modelbannerimages">
+				<source>Modelbannerimages</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.modelbannertitle" resname="tx_fafcompanies_domain_model_company.modelbannertitle">
+				<source>Modelbannertitle</source>
+			</trans-unit>
+			<trans-unit id="tx_fafcompanies_domain_model_company.modelcontent" resname="tx_fafcompanies_domain_model_company.modelcontent">
+				<source>Modelcontent</source>
+			</trans-unit>
+			<trans-unit id="address">
+				<source>ADRESSE</source>
+			</trans-unit>
+			<trans-unit id="industry">
+				<source>BRANCHE</source>
+			</trans-unit>
+			<trans-unit id="cooperating">
+				<source>MITARBEITENDE</source>
+			</trans-unit>
+			<trans-unit id="social">
+				<source>FOLGEN SIE UNS</source>
+			</trans-unit>
+			<trans-unit id="year">
+				<source>GRUNDUNGSJAHR</source>
+			</trans-unit>
+			<trans-unit id="rating">
+				<source>BEWERTUNG ALS ARBEITGEBER</source>
+			</trans-unit>
+			<trans-unit id="imagecontent">
+				<source>SIE UND WIR - DAS PERFEKTE MATCH</source>
+			</trans-unit>
+			<trans-unit id="textcontent">
+				<source>WIR SUCHEN AKTUELL IN FOLGENDEN BEREICHEN</source>
+			</trans-unit>
+			<trans-unit id="media">
+				<source>ENTDECKEN SIE BAD MERGENTHEIM</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
+

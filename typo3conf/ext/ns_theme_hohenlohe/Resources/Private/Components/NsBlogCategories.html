@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    
+<f:if condition="{content.categories} || {content.overline} || {content.headline}">
+        <section id="c{data.uid}" class="blog-kategorien">
+            <div class="container">
+                <f:if condition="{content.overline} || {content.headline}">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="blog-kategorien-title-block">
+                                <f:if condition="{content.overline}">
+                                    <span class="sub-tag">{content.overline}</span>
+                                </f:if>
+                                <f:if condition="{content.headline}">
+                                    <h2>{content.headline}</h2>
+                                </f:if>
+                            </div>
+                        </div>
+                    </div>
+                </f:if>
+                <f:if condition="{content.categories}">
+                    <div class="row">
+                        <f:for each="{content.categories}" as="category" iteration="i">
+                            <div class="col-md-4 col-sm-6">
+                                <f:link.action class="blog-kategorien-thumb" pluginName="category" extensionName="blog" arguments="{category:'{category.categoryId}'}" action="listPostsByCategory" controller="Post" pageUid="{content.cateLink}}">
+                                    <picture>
+                                        <source srcset="{f:uri.image(src: '{category.image}', maxWidth: '1920', height:347c, width:347c, cropVariant: 'default')}" media="(min-width: 1200px)">
+                                        <source srcset="{f:uri.image(src: '{category.image}', maxWidth: '1200', cropVariant: 'specialTablet')}" media="(min-width: 768px)">
+                                        <img class="image-embed-item" src="{f:uri.image(src: '{category.image}', width:'315c', height:'315c', cropVariant: 'specialMobile')}" alt="Image">
+                                    </picture>                            
+                                    <f:if condition="{category.name}">
+                                        <div class="blog-kategorien-content">
+                                            <p><f:format.crop maxCharacters="200" append="...">{category.name}</f:format.crop></p>
+                                        </div>
+                                    </f:if>
+                                </f:link.action>
+                            </div>
+                        </f:for>
+                    </div>
+                </f:if>
+            </div>
+        </section>
+    </f:if>
+</html>

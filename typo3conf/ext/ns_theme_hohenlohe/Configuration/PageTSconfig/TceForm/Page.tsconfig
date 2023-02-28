@@ -1,0 +1,50 @@
+TCEFORM.tt_content {
+    layout {
+        types {
+            list {
+                altLabels {
+                    1 = LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:blogTeaser
+                    2 = LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:blogList
+                }
+            }
+        }
+    }
+}
+TCEFORM.pages {
+    layout {
+        config {
+            default = 0
+        }
+        altLabels.1 = Yallow color text
+    }
+}
+
+tx_news.templateLayouts {
+    0 = LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang.xlf:listing
+    1 = LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang.xlf:events
+}
+
+TCEFORM.sys_file_reference.crop.config.cropVariants {
+  
+  specialTablet {
+    title = Tablet
+    selectedRatio = NaN
+    allowedAspectRatios {
+      NaN {
+        title = free
+        value = 0.0
+      }
+    }
+  }
+  specialMobile {
+    title = Mobile
+    selectedRatio = NaN
+    allowedAspectRatios {
+      NaN {
+        title = 9:16
+        value = 0.0
+      }
+    }
+  }
+
+}

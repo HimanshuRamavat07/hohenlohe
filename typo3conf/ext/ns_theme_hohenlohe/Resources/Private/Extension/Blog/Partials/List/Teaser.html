@@ -1,0 +1,38 @@
+<div class="col-md-4 col-sm-6">
+    <div class="blog-teaser-thumb">
+        <div class="blog-teaser-image">
+            <f:if condition="{post.featuredImage}">                        
+                <f:render partial="General/FeaturedTeaserImage" arguments="{image: post.featuredImage, settings: settings.lists.featuredImage}" />
+            </f:if>
+        </div>
+        <div class="blog-teaser-content">
+            <f:if condition="{post.categories}">
+                <f:for each="{post.categories}" as="category" iteration="i">
+                    <f:if condition="{i.isLast}">
+                        <f:then>
+                            <span class="sub-tag">{category.title}</span>
+                        </f:then>
+                        <f:else>
+                            <span class="sub-tag">{category.title},</span>
+                        </f:else>
+                    </f:if>
+                </f:for>
+            </f:if>
+            <h5 class="postlist__posttitle">
+                <blogvh:link.post post="{post}" />
+            </h5>
+            <f:if condition="{post.abstract}">
+                <f:then>
+                    <p class="postlist__postdescription"> <f:format.crop maxCharacters="150" append="..." respectWordBoundaries="1" respectHtml="1">{post.abstract}</f:format.crop></p>
+                </f:then>
+                <f:else>
+                    <p class="postlist__postdescription" ><f:format.crop maxCharacters="150" append="..." respectWordBoundaries="1" respectHtml="1">{post.description}
+                    </f:format.crop></p>
+                </f:else>
+            </f:if>
+        </div>
+        <blogvh:link.post post="{post}" class="icon-link" additionalAttributes="{aria-hidden: 'true'}" tabindex="-1"> 
+            <f:translate key="Weiterlesen" extensionName="ns_theme_hohenlohe" />
+        </blogvh:link.post>
+    </div>
+</div>

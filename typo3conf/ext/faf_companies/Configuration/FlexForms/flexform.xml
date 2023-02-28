@@ -1,0 +1,111 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+                    	<!-- View -->
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:faf_companies/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:faf_companies/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.cars_list</numIndex>					
+										<numIndex index="1">Company->list;Company->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:faf_companies/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.cars_detail</numIndex>
+										<numIndex index="1">Company->show</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+					<!-- PID Detail Page -->
+					<settings.detailPid>
+						<TCEforms>
+							<label>LLL:EXT:faf_companies/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.detailPid</label>
+							<displayCond>FIELD:switchableControllerActions:!=:Company->show</displayCond>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>	
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>							
+							</config>
+						</TCEforms>
+					</settings.detailPid>
+					<!-- PID List Page -->
+					<settings.listPid>
+						<TCEforms>
+							<label>LLL:EXT:faf_companies/Resources/Private/Language/locallang_be.xlf:flexforms_additional.listPid</label>
+							<displayCond>FIELD:switchableControllerActions:=:Company->show</displayCond>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+							</config>
+						</TCEforms>
+					</settings.listPid>
+
+					<settings.overline>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.overline</label>
+							<displayCond>FIELD:switchableControllerActions:!=:Company->show</displayCond>
+                            <config>
+                                <type>input</type>
+                                <size>50</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.overline>
+                    <settings.headline>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.headline</label> 
+							<displayCond>FIELD:switchableControllerActions:!=:Company->show</displayCond>                           
+                            <config>
+                                <type>input</type>
+                                <size>50</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.headline>
+                    <settings.infoText>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.infoText</label>
+							<displayCond>FIELD:switchableControllerActions:!=:Company->show</displayCond>                            
+                            <config>
+                                <type>input</type>
+                                <size>50</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.infoText>
+                    <settings.records>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.elementReference</label>
+							<displayCond>FIELD:switchableControllerActions:!=:Company->show</displayCond>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>tx_fafcompanies_domain_model_company</allowed>
+                                <minitems>1</minitems>
+                            </config>
+                        </TCEforms>
+                    </settings.records>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

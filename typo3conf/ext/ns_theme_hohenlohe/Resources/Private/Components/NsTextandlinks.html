@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <section class="content-section bg-{content.backgroundColor}" id="c{data.uid}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                	<f:if condition="{content.overline}">
+	                	<span class="sub-tag">{content.overline}</span>
+	                </f:if>
+                    <f:format.html>{content.textAndLink}</f:format.html>
+                </div>
+            </div>
+        </div>
+    </section>
+</html>

@@ -1,0 +1,47 @@
+# Let's define some constants for global configuration
+ns_basetheme.website.settings.logo_width >
+ns_basetheme.website.settings.logo_height >
+ns_basetheme.website.settings.favicon >
+ns_theme_hohenlohe {
+    website {
+        settings {
+            #cat = ns_basetheme/110/11; type=string; label=Search Result Page ID
+            searchPage =
+
+            #cat = ns_basetheme/110/12; type=string; label=Meta Navigation ID
+            MetaMenu =
+
+            #cat = ns_basetheme/110/13; type=string; label=Login Page ID
+            loginpage =
+
+            #cat = ns_basetheme/110/14; type=string; label=Search Bottom Links Page ID
+            searchBottomLinks =
+        }
+        social {
+            #cat = ns_basetheme/120/11; type=string; label=Facebook Link
+            facebook =
+
+            #cat = ns_basetheme/120/12; type=string; label=Youtube Link
+            youtube =
+
+            #cat = ns_basetheme/120/13; type=string; label=Instagram Link
+            instagram =
+
+            #cat = ns_basetheme/120/14; type=string; label=Linkedin Link
+            linkedin =
+
+            #cat = ns_basetheme/120/15; type=string; label=Xing Link
+            xing =
+        }
+        paths {
+            #cat = ns_theme_hohenlohe/website/settings/01; type=string; label=Template Path
+            templateRootPath = typo3conf/ext/ns_theme_hohenlohe/Resources/Private/Templates/
+
+            #cat = ns_theme_hohenlohe/website/settings/02; type=string; label=Layouts Path
+            layoutRootPath = typo3conf/ext/ns_theme_hohenlohe/Resources/Private/Layouts/
+
+            #cat = ns_theme_hohenlohe/website/settings/03; type=string; label=Partials Path
+            partialRootPath = typo3conf/ext/ns_theme_hohenlohe/Resources/Private/Partials/
+        }
+    }
+}

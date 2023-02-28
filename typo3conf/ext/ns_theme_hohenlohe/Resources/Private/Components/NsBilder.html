@@ -1,0 +1,65 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div id="c{data.uid}" class="bilder">
+    <f:switch  expression="{content.container}">
+        <f:case value="fluid">
+            <div class="container-fluid">
+                <f:render section="renderBuildSection" arguments="{_all}" />
+            </div>
+        </f:case>
+        <f:case value="container">        
+            <div class="container">                
+                <f:render section="renderBuildSection" arguments="{_all}" />
+            </div>        
+        </f:case>    
+    </f:switch>
+</div>
+        
+<f:section name="renderBuildSection">
+    <div class="row">
+        <f:switch expression="{content.layout}">
+            <f:case value="100">
+                <div class="col-12">
+                    <f:if condition="{image.0}">
+                        <f:render section="renderImage" arguments="{image: image}" />                                                       
+                    </f:if>                    
+                </div>
+            </f:case>
+            <f:case value="33">
+                <div class="col-sm-4">
+                    <f:render section="renderImage" arguments="{image: image}" />
+                </div>
+                <div class="col-sm-8">
+                    <f:render section="renderImage" arguments="{image: file2}" />
+                </div>
+            </f:case>
+            <f:case value="66">
+                <div class="col-sm-8">
+                    <f:render section="renderImage" arguments="{image: image}" />
+                </div>
+                <div class="col-sm-4">
+                    <f:render section="renderImage" arguments="{image: file2}" />
+                </div>
+            </f:case>
+            <f:case value="50">
+                <div class="col-sm-6">
+                    <f:render section="renderImage" arguments="{image: image}" />
+                </div>
+                <div class="col-sm-6">
+                    <f:render section="renderImage" arguments="{image: file2}" />
+                </div>
+            </f:case>
+        </f:switch>
+    </div>
+</f:section>
+<f:section name="renderImage">
+    <f:if condition="{image.0}">
+        <picture>
+            <source srcset="{f:uri.image(image: '{image.0}', maxWidth: '1920', cropVariant: 'default')}" media="(min-width: 1200px)">
+            <source srcset="{f:uri.image(image: '{image.0}', maxWidth: '1200', cropVariant: 'specialTablet')}" media="(min-width: 768px)">                
+            <img class="image-embed-item" src="{f:uri.image(image: '{image.0}', width:'1140c', height:'641c', cropVariant: 'specialMobile')}" alt="Image">            
+        </picture>
+    </f:if>
+</f:section>
+
+</html>

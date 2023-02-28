@@ -1,0 +1,121 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<style>
+    .member-teaser {
+        position: relative;
+        padding: 20px;
+        margin-bottom: 20px;
+        min-height: 175px;
+        display: block;
+        background-color: rgba(162, 162, 162, 0.1);
+        text-align: center;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+    }
+    .member-teaser .member-image-default {
+        opacity: 1;
+    }
+    .member-teaser h3 {
+        line-height: 28px;
+        margin-bottom: 5px;
+        letter-spacing: 5.2px;
+    }
+    .member-teaser h4 {
+        line-height: 25px;
+        letter-spacing: 4px;
+    }
+    .member-teaser-link {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        bottom: 0;
+        z-index: 2;
+    }
+    .member-teaser-link .icon-link {
+        color: inherit;
+    }
+    .icon-link {
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: #101010;
+        text-transform: uppercase;
+        position: relative;
+        padding-right: 24px;
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+    }
+    .icon-link::after {
+        content: '';
+        background-image: url(../images/icons/arrow-right.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: 0;
+        top: 1px;
+        width: 15px;
+        height: 20px;
+    }
+</style>
+<table class="table">
+    <tr>
+        <th>
+            <h2>
+                <f:translate
+                    key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+            </h2>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <section class="member-section">
+                <div class="container">
+                    <f:if condition="{flexformData.overline} || {flexformData.headline}">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="member-title-block">
+                                    <f:if condition="{flexformData.overline}">
+                                        <span class="sub-tag">{flexformData.overline}</span>
+                                    </f:if>
+                                    <f:if condition="{flexformData.headline}">
+                                        <h2>{flexformData.headline}</h2>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </div>
+                    </f:if>
+                    <div class="row">
+                        <f:for each="{flexformData.companies}" as="company" iteration="i">
+                            <div class="col-lg-4 col-sm-6">
+                                <a href="javascipt:;" class="member-teaser" data-toggle="modal" data-target=".member-modal">
+            
+                                    <f:if condition="{company.container.logo}">
+                                        <img width="125px" height="75px" class="member-image member-image-default"
+                                            src="{f:uri.image(src: '{company.container.logo}', width:'125', height:'75', cropVariant: 'specialMobile')}"
+                                            alt="Member Logo">
+                                    </f:if>
+                                    <f:if condition="{company.container.name}">
+                                        <h3>{company.container.name}</h3>
+                                    </f:if>                                                                        
+                                </a>
+                            </div>
+                        </f:for>
+                    </div>
+                </div>
+            </section>
+        
+        </td>
+    </tr>
+</table>
+
+</html>

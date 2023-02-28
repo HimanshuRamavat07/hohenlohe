@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true"> 
+    
+    <f:if condition="{content.overline} || {content.videoUrl} || {image} || {content.name} || {content.beschreibung} || {content.subline} ">
+        <section id="c{data.uid}" class="testimonial-video-section">
+            <div class="container">
+                <div class="testimonial-video">
+                    <f:if condition="{content.overline}">
+                        <span class="sub-tag">{content.overline}</span>
+                    </f:if>
+                    <div class="testimonial-cover-image bg-image" style="background-image: url({f:uri.image(image: '{image.0}',width:'960c', height:'533c')})">
+                        <a href="javascript:;" class="play-button">
+                            <img src="typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/icons/play-button.svg" alt="Icon">
+                        </a>
+                        <div class="video-area">
+                            <iframe class="lazyload" data-src="{content.videoUrl}"></iframe>
+                        </div>
+                        <div class="testimonial-video-profile">
+                            <f:if condition="{content.name}">
+                                <p class="profile-name">{content.name}</p>
+                            </f:if>
+                            <f:if condition="{content.beschreibung}">
+                                <p class="profile-description"><f:format.nl2br>{content.beschreibung}</f:format.nl2br></p>
+                            </f:if>
+                        </div>
+                    </div>
+                    <f:if condition="{content.subline}">
+                        <div class="testimonial-video-text">
+                            <p>{content.subline}</p>
+                        </div>
+                    </f:if>
+                </div>
+            </div>
+        </section>
+</f:if>
+</html>

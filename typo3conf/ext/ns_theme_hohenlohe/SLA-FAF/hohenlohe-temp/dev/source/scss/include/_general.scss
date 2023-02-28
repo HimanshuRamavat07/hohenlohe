@@ -1,0 +1,144 @@
+/*******************************************************************************
+* General
+*******************************************************************************/
+.site-main {
+    position: relative;
+    margin-top: 75px;
+    min-height: 275px;
+}
+.no-scrollbar {
+    overflow: hidden;
+}
+
+.hero-slider-exist {
+    .site-main {
+        margin-top: 0;
+    }
+}
+
+.scrollmagic-pin-spacer {
+    margin-bottom: 0 !important;
+}
+
+.videoHintImg {
+    background-image: url(https://www.hohenlohe.plus/typo3conf/ext/ns_theme_hohenlohe/Resources/Public/images/youtube-placeholder-dark-blue.svg);
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.news {
+    .page-navigation {
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(space-between);
+        margin: 30px 0;
+
+        p,
+        ul {
+            margin-bottom: 0;
+        }
+
+        ul {
+            li {
+                background-color: $brand-color;
+                color: $white;
+                border: 1px solid $white;
+
+                &.current {
+                    padding: 10px 20px;
+                    background-color: $brand-color-secondary;
+                }
+
+                a {
+                    padding: 10px 20px;
+
+                    &:hover {
+                        background-color: $color-light-yellow;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md){
+    .site-main {
+        min-height: 685px;
+    }
+}
+
+@include media-breakpoint-up(lg){
+    .site-main {
+        min-height: 460px;
+    }
+}
+@include media-breakpoint-up(xl){
+    .icon-sammlung {
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        -moz-transform: translateY(40px);
+        -ms-transform: translateY(40px);
+        -o-transform: translateY(40px);
+        transform: translateY(40px);
+        @include transition(all, 0.8s, ease-in-out, 0s);
+    }
+
+    .icon-sammlung {
+        &.visible {
+            opacity: 1;
+            -webkit-transform: none;
+            -moz-transform: none;
+            -ms-transform: none;
+            -o-transform: none;
+            transform: none;
+        }
+    }
+
+    .blog-kategorien-thumb,
+    .teaser-elemente-thumb {
+        opacity: 0;
+        -webkit-transform: translateX(-40px);
+        -moz-transform: translateX(-40px);
+        -ms-transform: translateX(-40px);
+        -o-transform: translateX(-40px);
+        transform: translateX(-40px);
+        @include transition(all, 0.8s, ease-in-out, 0s);
+    }
+
+    .testimonial-video,
+    .video,
+    .testimonial,
+    .blog-teaser-thumb,
+    .blog-kategorien-thumb,
+    .teaser-elemente-thumb {
+        &.visible {
+            opacity: 1;
+            -webkit-transform: none;
+            -moz-transform: none;
+            -ms-transform: none;
+            -o-transform: none;
+            transform: none;
+        }
+    }
+
+    .testimonial-video,
+    .video,
+    .testimonial,
+    .blog-teaser-thumb {
+        opacity: 0;
+        -webkit-transform: translateX(40px);
+        -moz-transform: translateX(40px);
+        -ms-transform: translateX(40px);
+        -o-transform: translateX(40px);
+        transform: translateX(40px);
+        @include transition(all, 0.8s, ease-in-out, 0s);
+
+    }
+    .site-main {
+        margin-top: 75px;
+        min-height: 623px;
+    }
+}

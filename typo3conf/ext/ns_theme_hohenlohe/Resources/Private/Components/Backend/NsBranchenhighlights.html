@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <table class="table">
+        <tr>
+            <th>
+                <h2>
+                    <f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" />
+                </h2>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <section class="accordion-section">
+                    <div class="container">
+                        <f:if condition="{flexformData.overline} || {flexformData.headline}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="accordion-title-block">
+                                        <f:if condition="{flexformData.overline}">
+                                            <span class="sub-tag">{flexformData.overline}</span>
+                                        </f:if>
+                                        <f:if condition="{flexformData.headline}">
+                                            <h2>{flexformData.headline}</h2>
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:if>
+                    </div>
+                    <div id="accordion" class="accordion-block">
+                        <f:for each="{flexformData.accordions}" as="accordion" iteration="i">
+                            <div class="card">
+                                <div class="card-header collapsed bg-image" id="headingOne" data-toggle="collapse"
+                                    data-target="#collapseOne{i.cycle}" aria-expanded="false"
+                                    style="background-image: url('{f:uri.image(src: '{accordion.container.image}')}')">
+                                    <div class="container">
+                                        <f:if condition="{accordion.container.headline}">
+                                            <h2>{accordion.container.headline}</h2>
+                                        </f:if>
+                                        <p class="icon-link">
+                                            <f:translate key="packagingMore" extensionName="ns_theme_hohenlohe" />
+                                        </p>
+                                    </div>
+                                </div>                               
+                            </div>
+                        </f:for>
+                    </div>
+                </section>
+            </td>
+        </tr>
+    </table>
+
+</html>

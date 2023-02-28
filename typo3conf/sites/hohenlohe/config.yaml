@@ -1,0 +1,113 @@
+base: 'https://hohenlohe-plus.ddev.site/'
+disableStaticFileCache: false
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=4'
+languages:
+  -
+    title: German
+    enabled: true
+    base: /
+    typo3Language: de
+    locale: de_DE
+    iso-639-1: de
+    websiteTitle: ''
+    navigationTitle: German
+    hreflang: de
+    direction: ltr
+    flag: de
+    languageId: 0
+  -
+    title: English
+    enabled: true
+    base: /en/
+    typo3Language: default
+    locale: en_US.UTF-8
+    iso-639-1: en
+    websiteTitle: ''
+    navigationTitle: English
+    hreflang: en
+    direction: ltr
+    fallbackType: strict
+    fallbacks: '0'
+    flag: en-us-gb
+    languageId: 1
+rootPageId: 1
+routeEnhancers:
+  CompanyPlugin:
+    type: Extbase
+    extension: FafCompanies
+    plugin: Company
+    routes:
+      -
+        routePath: '/{company}'
+        _controller: 'Company::show'
+        _arguments:
+          company: company
+    defaultController: 'Company::list'
+    aspects:
+      company:
+        type: PersistedAliasMapper
+        tableName: tx_fafcompanies_domain_model_company
+        routeFieldName: slug
+  BlogCategory:
+    type: Extbase
+    extension: Blog
+    plugin: Category
+    routes:
+      -
+        routePath: '/category/{category_title}'
+        _controller: 'Post::listPostsByCategory'
+        _arguments:
+          category_title: category
+      -
+        routePath: '/category/{category_title}/page-{page}'
+        _controller: 'Post::listPostsByCategory'
+        _arguments:
+          category_title: category
+          page: '@widget_0/currentPage'
+    defaultController: 'Post::listPostsByCategory'
+    requirements:
+      category_title: '^[a-z0-9].*$'
+      page: \d+
+    aspects:
+      category_title:
+        type: PersistedPatternMapper
+        tableName: sys_category
+        routeFieldPattern: '^(?P<slug>.+)$'
+        routeFieldName: slug
+        routeFieldResult: '{slug}'
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '99'
+  BlogPosts:
+    type: Extbase
+    extension: Blog
+    plugin: Posts
+    routes:
+      -
+        routePath: '/page-{page}'
+        _controller: 'Post::listRecentPosts'
+        _arguments:
+          page: 'currentPage'
+    defaultController: 'Post::listRecentPosts'
+    requirements:
+      page: \d+
+    aspects:
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '99'
+routes:
+  -
+    route: robots.txt
+    type: staticText
+    content: "User-agent: *\r\nDisallow: /typo3/\r\nDisallow: /typo3_src/\r\nAllow: /typo3/sysext/frontend/Resources/Public/*\r\n"
+  -
+    route: sitemap.xml
+    type: uri
+    source: 'https://hohenlohe-plus.ddev.site//?sitemap=pages&type=1533906435'
+websiteTitle: 'Hohenlohe Plus'

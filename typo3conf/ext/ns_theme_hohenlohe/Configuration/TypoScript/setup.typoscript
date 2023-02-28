@@ -1,0 +1,26 @@
+# Includes Basic Configuration of website
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Configuration" extensions="typoscript">
+
+# Includes EXT:Form Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Extensions/Form" extensions="typoscript">
+
+# Includes EXT:Grid Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Extensions/GridElements" extensions="typoscript">
+
+# Includes EXT:Fluid Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Extensions/Fluid" extensions="typoscript">
+
+# Includes IndexedSearch Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Extensions/IndexedSearch" extensions="typoscript">
+
+# Includes Blog Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Extensions/Blog" extensions="typoscript">
+
+# Includes Container Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Extensions/Container" extensions="typoscript">
+
+# Includes EXT:News Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Extensions/news" extensions="typoscript">
+
+# Includes Page Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_hohenlohe/Configuration/TypoScript/Page" extensions="typoscript">

@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div style="padding:10px;background-color: {f:if(condition:'{flexformData.backgroundColor}==yellow',then:'#FDB936')};">
+        <h2><f:translate key="LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_db.xlf:wizard.{data.CType}" /></h2>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <f:if condition="{data.header}"><h1>{data.header}</h1></f:if>
+
+                    <f:if condition="{flexformData.teaser}">
+		                <div class="row">
+		                	<f:for each="{flexformData.teaser}" as="item">
+			                    <div class="col-md-4" style="margin-bottom:10px;text-align: center;">
+			                    	<f:image src="{item.container.image}" width="150c" height="150c" />
+			                    	<h2>{item.container.headline}</h2>
+			                    	<f:format.html>{item.container.text}</f:format.html>
+			                    </div>
+			                </f:for>
+		                </div>
+		            </f:if>
+                </div>
+            </div>
+        </header>
+    </div>
+</html>

@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:if condition="{image} || {content.overline} || {content.headline}">
+		<section class="content-section gray-bg">
+			<div class="container">
+				<f:if condition="{image}">
+					<div class="logo-slider owl-carousel">
+						<f:for each="{image}" as="img" iteration="i">
+							<div class="logo-slide">
+								<f:image image="{img}" alt="{img.alternative}" title="{img.title}" />
+							</div>
+						</f:for>
+					</div>
+				</f:if>
+				<div class="row">
+					<div class="col-md-10">
+						<div class="mitglieder-teaser">
+							<f:if condition="{content.overline}">
+								<span class="sub-tag">{content.overline}</span>
+							</f:if>
+							<f:if condition="{content.headline}">
+								<h2 class="mitglieder-teaser__headline">{content.headline}</h2>
+							</f:if>
+							<f:if condition="{content.text}">
+								<f:format.html>{content.text}</f:format.html>
+							</f:if>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</f:if>
+
+</html>

@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:if condition="{content.overline} || {content.zitat} || {content.name} || {content.beschreibung}">
+        <section id="c{data.uid}" class="testimonial-section">
+            <div class="container">
+                <div class="testimonial">
+                    <f:if condition="{content.overline}">
+                        <span class="sub-tag">{content.overline}</span>
+                    </f:if>
+                    <f:if condition="{content.zitat}">
+                        <div class="testimonial-zitat">
+                            <f:format.html>{content.zitat}</f:format.html>
+                        </div>
+                    </f:if>
+                    <f:if condition=" {content.name} || {content.beschreibung} || {image}">
+                        <div class="profile-block">
+                            <f:if condition="{image}">
+                                <div class="profile-image">
+                                    <div class="profile-image-frame">
+                                        <div class="image" style="background-image: url({f:uri.image(image: '{image.0}',width:'200c', height:'200c')})">
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:if>
+                            <f:if condition="{content.name} || {content.beschreibung}">
+                                <div class="profile-content">
+                                    <f:if condition="{content.name}">
+                                        <p class="profile-name">{content.name}</p>
+                                    </f:if>
+                                    <f:if condition="{content.beschreibung}">
+                                        <p class="profile-description"> <f:format.nl2br>{content.beschreibung}</f:format.nl2br></p>
+                                    </f:if>
+                                </div>
+                            </f:if>
+                        </div>
+                    </f:if>
+                </div>
+            </div>
+        </section>
+    </f:if>
+</html>

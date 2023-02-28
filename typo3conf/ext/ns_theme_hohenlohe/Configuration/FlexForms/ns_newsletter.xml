@@ -1,0 +1,69 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Fields</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    
+                    <isPopup>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.isPopup</label>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </isPopup>
+                    
+                    <overline>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.overline</label>
+                            <config>
+                                <type>input</type>
+                                <size>50</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </overline>   
+                    <headline>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.headline</label>
+                            <config>
+                                <type>input</type>
+                                <size>50</size>
+                                <eval>trim, required</eval>
+                            </config>
+                        </TCEforms>
+                    </headline>   
+                    <text>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.content</label>
+                            <config>
+                                <type>text</type>
+                                <rows>5</rows>
+                                <cols>30</cols>
+                                <eval>trim,required</eval>
+                                <enableRichtext>1</enableRichtext>
+                            </config>
+                        </TCEforms>
+                    </text>                    
+                    <formHtml>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_hohenlohe/Resources/Private/Language/locallang_flex.xlf:general.formHtml</label>
+                            <config>
+                                <type>text</type>
+                                <rows>10</rows>
+                                <cols>50</cols>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </formHtml>
+                    
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
