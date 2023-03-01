@@ -89,13 +89,13 @@ $(document).ready(function () {
             $('.navigation').addClass('second-level--open');
             $('.header-main').addClass('sub-menu--open');
             $('body').addClass('desktop-sub-menu body-effect');
-            $('.active-nav').parents('.has-sub').addClass('clicked');
+            $('.active-nav').parents('.active').addClass('clicked');
         }
         if ($('.sub-menu .sub-menu li a').hasClass('active-nav')) {
             $('.navigation').addClass('second-level--open third-level--open');
             $('.header-main').addClass('sub-menu--open');
             $('body').addClass('desktop-sub-menu body-effect');
-            $('.active-nav').parents('.has-sub').addClass('clicked');
+            $('.active-nav').parents('.active').addClass('clicked');
         }
     });
     $('.navigation > nav > ul > li.has-sub > a').click(function () {
